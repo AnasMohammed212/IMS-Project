@@ -13,29 +13,21 @@ namespace ConsoleApp1
     {
         static async Task Main(string[] args)
         {
-            DataTable Data = await clsCategoryData.GetAllCategories();
-            foreach (DataRow dr in Data.Rows)
+            //DataTable Data = await clsSupplierData.GetAllSuppliers();
+            //foreach (DataRow dr in Data.Rows)
+            //{
+            //    Console.WriteLine($"{dr["SupplierName"]}====>{dr["ContactPerson"]}");
+            //}
+            //string SupplierName = "", ContactPerson = "", Email = "", Phone = "", Address = "";
+            //clsSupplierData.GetSupplierInfoByID(Guid.Parse("E085CE12-7AD6-416C-8D0B-7E77D5C88D61"), ref SupplierName,ref ContactPerson,ref Email,ref Phone,ref Address);
+            //Console.WriteLine($"  {SupplierName}  {ContactPerson}   {Email}   ");
+            if (await clsSupplierData.IsSupplierExist(Guid.Parse("E085CE12-7AD6-416C-8D0B-7E77D5C88D6")))
             {
-                Console.WriteLine($"{dr["CategoryID"]}====>{dr["CategoryName"]}");
+                Console.WriteLine("Found");
             }
-            //Stopwatch stopwatch = new Stopwatch();
-            //stopwatch.Start();
-            //if (await clsCategoryData.IsCategoryExist(3))
-            //{
-            //    Console.WriteLine("Yes");
-            //}
-            //stopwatch.Stop();
-            //Console.WriteLine(stopwatch.Elapsed.TotalMilliseconds.ToString());
-            //string name = "";
-            //if (clsCategoryData.GetCategoryInfoByID(4,ref name))
-            //{
-            //    Console.WriteLine($"{name}");
-            //}
-            //await clsCategoryData.AddNewCategory("dddddddddddddd");
-            //await clsCategoryData.UpdateCategory(9,"Sports");
-            //await clsCategoryData.DeleteCategory(10);
+            else
+                Console.WriteLine("Not Found");
 
-            Console.WriteLine(4);
-        }
+        } 
     }
 }

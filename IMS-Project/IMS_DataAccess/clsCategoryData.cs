@@ -13,6 +13,7 @@ namespace IMS_DataAccess
         static public bool GetCategoryInfoByID(int CategoryID,ref string CategoryName)
         {
             bool isFound = false;
+
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 try
@@ -182,6 +183,6 @@ namespace IMS_DataAccess
             return (rowsAffected > 0);
         }
 
-        dddfdf
+       
     }
 }
