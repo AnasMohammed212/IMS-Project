@@ -10,7 +10,7 @@ namespace IMS_DataAccess
 {
     public class clsSupplierData
     {
-        public static bool GetSupplierInfoByID(Guid SupplierID, ref string SupplierName, ref string ContactPerson, ref string Email, ref string Phone, ref string Address)
+        public static bool GetSupplierInfoByID(int SupplierID, ref string SupplierName, ref string ContactPerson, ref string Email, ref string Phone, ref string Address)
         {
             bool isFound = false;
             try
@@ -101,17 +101,82 @@ namespace IMS_DataAccess
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
                 {
                     await connection.OpenAsync();
-                    using (SqlCommand command = new SqlCommand("SP_IsSupplierExist", connection))
+                    using (SqlCommand command = new SqlCommand("SP_AddNewSupplier", connection))
                     {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierName", SupplierName);
+                        command.Parameters.AddWithValue("@ContactPerson", ContactPerson);
+                        command.Parameters.AddWithValue("@Email", Email);
+                        command.Parameters.AddWithValue("@Phone", Phone);
+                        command.Parameters.AddWithValue("@Address", Address);
+                        SqlParameter outputIdParam = new SqlParameter("@NewSupplierID", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(outputIdParam);
+
+                        await command.ExecuteNonQueryAsync();
+                        NewSupplierID = (int)command.Parameters["@NewSupplierID"].Value;
 
                     }
                 }
             }
             catch (Exception ex)
             {
+            Console.WriteLine(ex.ToString());
             }
             return NewSupplierID;
 
+        }
+        public static async Task<bool> UpdateSupplier(int SupplierID,string SupplierName, string ContactPerson, string Email, string Phone, string Address)
+        {
+            int rowsAffected = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("SP_UpdateSupplier", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierID", SupplierID);
+                        command.Parameters.AddWithValue("@SupplierName", SupplierName);
+                        command.Parameters.AddWithValue("@ContactPerson", ContactPerson);
+                        command.Parameters.AddWithValue("@Email", Email);
+                        command.Parameters.AddWithValue("@Phone", Phone);
+                        command.Parameters.AddWithValue("@Address", Address);
+
+                        rowsAffected = await command.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return (rowsAffected > 0);
+        }
+        public static async Task<bool> DeleteSupplier(int SupplierID)
+        {
+            int rowsAffected = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("SP_DeleteSupplier", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierID", SupplierID);
+                        rowsAffected = await command.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return (rowsAffected > 0);
         }
     }
 }

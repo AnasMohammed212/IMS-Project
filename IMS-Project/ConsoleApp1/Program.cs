@@ -21,12 +21,8 @@ namespace ConsoleApp1
             //string SupplierName = "", ContactPerson = "", Email = "", Phone = "", Address = "";
             //clsSupplierData.GetSupplierInfoByID(Guid.Parse("E085CE12-7AD6-416C-8D0B-7E77D5C88D61"), ref SupplierName,ref ContactPerson,ref Email,ref Phone,ref Address);
             //Console.WriteLine($"  {SupplierName}  {ContactPerson}   {Email}   ");
-            if (await clsSupplierData.IsSupplierExist(Guid.Parse("E085CE12-7AD6-416C-8D0B-7E77D5C88D6")))
-            {
-                Console.WriteLine("Found");
-            }
-            else
-                Console.WriteLine("Not Found");
+            await clsSupplierData.DeleteSupplier(1);
+           
 
         } 
     }
