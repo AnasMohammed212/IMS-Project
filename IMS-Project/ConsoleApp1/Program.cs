@@ -19,11 +19,30 @@ namespace ConsoleApp1
             //    Console.WriteLine($"{dr["SupplierName"]}====>{dr["ContactPerson"]}");
             //}
             //string SupplierName = "", ContactPerson = "", Email = "", Phone = "", Address = "";
-            //clsSupplierData.GetSupplierInfoByID(Guid.Parse("E085CE12-7AD6-416C-8D0B-7E77D5C88D61"), ref SupplierName,ref ContactPerson,ref Email,ref Phone,ref Address);
+            //clsSupplierData.GetSupplierInfoByID(1, ref SupplierName, ref ContactPerson, ref Email, ref Phone, ref Address);
             //Console.WriteLine($"  {SupplierName}  {ContactPerson}   {Email}   ");
-            await clsSupplierData.DeleteSupplier(1);
-           
 
-        } 
+
+
+            int newProductID = await clsProductData.AddNewProduct(
+                       "Redragon Fizz K617",
+                       "60% RGB Mechanical Keyboard - Red Switches",
+                       1,      // CategoryID
+                       2,      // SupplierID
+                       18.75m, // PurchasePrice
+                       25.99m, // SalePrice
+                       1       // UnitID
+                   );
+
+            if (newProductID != -1)
+            {
+                Console.WriteLine($"✅ تمت إضافة المنتج بنجاح. رقم المنتج الجديد: {newProductID}");
+            }
+            else
+            {
+                Console.WriteLine("❌ فشل في إضافة المنتج.");
+            }
+
+        }
     }
 }
