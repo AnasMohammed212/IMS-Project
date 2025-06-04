@@ -24,23 +24,15 @@ namespace ConsoleApp1
 
 
 
-            int newProductID = await clsProductData.AddNewProduct(
-                       "Redragon Fizz K617",
-                       "60% RGB Mechanical Keyboard - Red Switches",
-                       1,      // CategoryID
-                       2,      // SupplierID
-                       18.75m, // PurchasePrice
-                       25.99m, // SalePrice
-                       1       // UnitID
-                   );
+            int newProductID = await clsProductData.AddNewProduct("Amazon Echo Dot (4th Gen)", "Smart speaker with Alexa", 1, 4, 29.99m, 49.99m, 1);
 
             if (newProductID != -1)
             {
-                Console.WriteLine($"✅ تمت إضافة المنتج بنجاح. رقم المنتج الجديد: {newProductID}");
+                Console.WriteLine($" DONE : {newProductID}");
             }
             else
             {
-                Console.WriteLine("❌ فشل في إضافة المنتج.");
+                Console.WriteLine("❌ Failed ");
             }
 
         }
