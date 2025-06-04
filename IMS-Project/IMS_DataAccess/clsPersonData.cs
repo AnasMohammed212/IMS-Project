@@ -116,7 +116,7 @@ namespace IMS_DataAccess
 
         public static async Task<int> AddNewPerson(string NationalNo, string FirstName, string SecondName,
     string LastName, DateTime DateOfBirth, byte Gender, string Address, string Phone,
-    int NationalityCountryID, string ThirdName = null, string Email = null, string ImagePath = null)
+    int NationalityCountryID, bool IsActive, string ThirdName = null, string Email = null, string ImagePath = null)
         {
             int NewPersonID = -1;
 
@@ -138,7 +138,7 @@ namespace IMS_DataAccess
                         command.Parameters.AddWithValue("@Address", Address);
                         command.Parameters.AddWithValue("@Phone", Phone);
                         command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-
+                        command.Parameters.AddWithValue("@IsActive",IsActive);
                         if (!string.IsNullOrEmpty(ThirdName))
                             command.Parameters.AddWithValue("@ThirdName", ThirdName);
                         else
