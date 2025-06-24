@@ -28,14 +28,14 @@ namespace IMS_DataAccess
                         command.Parameters.AddWithValue("@Password", Password);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
 
-                        SqlParameter outputIdParam = new SqlParameter("@UserID", SqlDbType.Int)
+                        SqlParameter outputIdParam = new SqlParameter("@NewUserID", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
                         command.Parameters.Add(outputIdParam);
 
                         await command.ExecuteNonQueryAsync();
-                        NewUserID = (int)command.Parameters["@UserID"].Value;
+                        NewUserID = (int)command.Parameters["@NewUserID"].Value;
                     }
                 }
             }
@@ -49,7 +49,7 @@ namespace IMS_DataAccess
 
 
         public static async Task<bool> UpdateUser(int UserID, string UserName,
-    string Password = null, bool IsActive = true)
+    string Password ,bool IsActive)
         {
             int rowsAffected = 0;
 
@@ -84,28 +84,36 @@ namespace IMS_DataAccess
         }
 
 
-        public static async Task<DataTable> GetUserByID(int UserID)
+        public static bool GetUserInfoByID(int UserID,ref int PersonID,ref string Username,ref string Password,ref bool isActive)
         {
-            DataTable dt = new DataTable();
+            bool isFound = false;
 
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                await connection.OpenAsync();
+
+                try
+                {
+                    connection.Open();
                 SqlCommand command = new SqlCommand("SP_GetUserByID", connection);
                 command.CommandType = CommandType.StoredProcedure;
                 command.Parameters.AddWithValue("@UserID", UserID);
 
-                try
-                {
-                    SqlDataReader Reader = await command.ExecuteReaderAsync();
-                    if (Reader.HasRows)
+                    SqlDataReader Reader =  command.ExecuteReader();
+                    if (Reader.Read())
                     {
-                        dt.Load(Reader);
+                        isFound = true;
+                        PersonID=(int)Reader["PersonID"];
+                        Username = (string)Reader["UserName"];
+                        Password = (string)Reader["Password"];
+                        isActive = (bool)Reader["IsActive"];
                     }
+                    else
+                        isFound = false;
                     Reader.Close();
                 }
                 catch (Exception ex)
                 {
+                    isFound = false;
                     Console.WriteLine(ex.ToString());
                 }
                 finally
@@ -113,7 +121,7 @@ namespace IMS_DataAccess
                     connection.Close();
                 }
             }
-            return dt;
+            return isFound;
         }
 
         public static async Task<bool> IsUserExist(int UserID)
@@ -185,7 +193,29 @@ namespace IMS_DataAccess
             return dt;
         }
 
-
+        public static async Task<bool> DeleteUser(int UserID)
+        {
+            int rowsAffected = 0;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("SP_DeleteUser", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@UserID", UserID);
+                        rowsAffected = await command.ExecuteNonQueryAsync();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            return (rowsAffected > 0);
+        }
+    }
 
     }
-}
+
