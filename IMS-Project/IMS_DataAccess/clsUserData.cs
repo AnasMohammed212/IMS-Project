@@ -141,14 +141,14 @@ namespace IMS_DataAccess
                             command.Parameters.AddWithValue("@UserID", UserID);
                         
 
-                        SqlParameter returnParameter = new SqlParameter("@Exists", SqlDbType.Bit)
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Bit)
                         {
-                            Direction = ParameterDirection.Output
+                            Direction = ParameterDirection.ReturnValue
                         };
                         command.Parameters.Add(returnParameter);
 
                         await command.ExecuteNonQueryAsync();
-                        isFound = (bool)returnParameter.Value;
+                        isFound = ((int)returnParameter.Value)==1;
                     }
                 }
             }
