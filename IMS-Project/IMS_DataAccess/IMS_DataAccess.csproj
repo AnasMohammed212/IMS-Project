@@ -48,6 +48,7 @@
     <Compile Include="clsInventoryTransactionData.cs" />
     <Compile Include="clsPersonData.cs" />
     <Compile Include="clsProductData.cs" />
+    <Compile Include="clsStockData.cs" />
     <Compile Include="clsSupplierData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="Program.cs" />

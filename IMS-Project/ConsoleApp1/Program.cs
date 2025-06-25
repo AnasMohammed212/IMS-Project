@@ -13,26 +13,15 @@ namespace ConsoleApp1
     {
         static async Task Main(string[] args)
         {
-            //DataTable Data = await clsUserData.GetAllUsers();
-            //foreach (DataRow dr in Data.Rows)
-            //{
-            //    Console.WriteLine($"{dr["UserID"]}====>{dr["UserName"]}");
-            //}
-            //string Password = "", Username="";
-            //int PersonID = -1;
-            //bool IsActive=false;
-            //clsUserData.GetUserInfoByID(4,ref PersonID,ref Username,ref Password,ref IsActive);
-            //Console.WriteLine($"  {PersonID}  {Password}   {IsActive}   ");
+            
+            Console.WriteLine(" All Stock Records:");
+            DataTable dt = await clsStockData.GetAllStock();
+            foreach (DataRow row in dt.Rows)
+            {
+                Console.WriteLine($"ProductID: {row["ProductID"]}, Quantity: {row["Quantity"]}, LastUpdated: {row["LastUpdated"]}");
+            }
 
-            int newTransactionID = await clsInventoryTransactionData.AddNewInventoryTransaction(
-           ProductID: 17,
-           Quantity: 10,
-           TransactionType: "IN",
-           TransactionDate: DateTime.Now,
-           PerformedByUserID: 1,
-           Notes: "First inventory transaction"
-       );
-            Console.WriteLine($"New Transaction ID: {newTransactionID}");
+
 
         }
     }
