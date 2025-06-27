@@ -13,15 +13,15 @@ namespace ConsoleApp1
     {
         static async Task Main(string[] args)
         {
-            
-            Console.WriteLine(" All Stock Records:");
-            DataTable dt = await clsStockData.GetAllStock();
-            foreach (DataRow row in dt.Rows)
-            {
-                Console.WriteLine($"ProductID: {row["ProductID"]}, Quantity: {row["Quantity"]}, LastUpdated: {row["LastUpdated"]}");
-            }
 
-
+            int newOrderID = await clsPurchaseOrderData.AddNewPurchaseOrder(
+             SupplierID: 1,
+             OrderDate: DateTime.Now,
+             CreatedByUserID: 1,
+             Status: "Pending",
+             Notes: "Test order from Program.cs"
+         );
+            Console.WriteLine($"✅ Added New Purchase Order with ID: {newOrderID}");
 
         }
     }

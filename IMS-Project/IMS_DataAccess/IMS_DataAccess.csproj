@@ -44,11 +44,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsCategoryData.cs" />
+    <Compile Include="clsCountryData.cs" />
     <Compile Include="clsDataAccessSettings.cs" />
     <Compile Include="clsInventoryTransactionData.cs" />
     <Compile Include="clsPersonData.cs" />
     <Compile Include="clsProductData.cs" />
     <Compile Include="clsPurchaseOrderData.cs" />
+    <Compile Include="clsPurchaseOrderDetailsData.cs" />
     <Compile Include="clsStockData.cs" />
     <Compile Include="clsSupplierData.cs" />
     <Compile Include="clsUserData.cs" />
