@@ -94,7 +94,7 @@ namespace IMS_DataAccess
             return (rowsAffected > 0);
         }
 
-        public static async Task<DataTable> GetDetailsByOrderID(int PurchaseOrderID)
+        public static async Task<DataTable> GetAllOrderDetails(int PurchaseOrderID)
         {
             DataTable dt = new DataTable();
             try
