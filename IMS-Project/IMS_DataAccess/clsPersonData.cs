@@ -10,78 +10,6 @@ namespace IMS_DataAccess
 {
     public class clsPersonData
     {
-        static public async Task<bool> IsPersonExist(int PersonID)
-        {
-            bool isFound = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    await connection.OpenAsync();
-                    using (SqlCommand command = new SqlCommand("SP_IsPersonExist", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@PersonID", PersonID);
-
-                        SqlParameter returnParameter = new SqlParameter("@Exists", SqlDbType.Bit)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        command.Parameters.Add(returnParameter);
-
-                        await command.ExecuteNonQueryAsync();
-                        isFound = (bool)returnParameter.Value;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                isFound = false;
-            }
-
-            return isFound;
-        }
-
-        static public bool GetPersonByID(int PersonID, ref string FirstName, ref string LastName,
-    ref string NationalNo, ref string Phone, ref int NationalityCountryID)
-        {
-            bool isFound = false;
-
-            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-            {
-                try
-                {
-                    connection.Open();
-                    SqlCommand command = new SqlCommand("SP_GetPersonByID", connection);
-                    command.CommandType = CommandType.StoredProcedure;
-                    command.Parameters.AddWithValue("@PersonID", PersonID);
-
-                    SqlDataReader Reader = command.ExecuteReader();
-                    if (Reader.Read())
-                    {
-                        isFound = true;
-                        FirstName = (string)Reader["FirstName"];
-                        LastName = (string)Reader["LastName"];
-                        NationalNo = (string)Reader["NationalNo"];
-                        Phone = (string)Reader["Phone"];
-                        NationalityCountryID = (int)Reader["NationalityCountryID"];
-                    }
-                    else
-                        isFound = false;
-
-                    Reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                    isFound = false;
-                }
-            }
-            return isFound;
-        }
-
         public static async Task<DataTable> GetAllPeople()
         {
             DataTable dt = new DataTable();
@@ -89,172 +17,179 @@ namespace IMS_DataAccess
             using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 await connection.OpenAsync();
-                SqlCommand command = new SqlCommand("SP_GetAllPeople", connection);
-                command.CommandType = CommandType.StoredProcedure;
+                SqlCommand command = new SqlCommand("SP_GetAllPeople", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
 
-                try
-                {
-                    SqlDataReader Reader = await command.ExecuteReaderAsync();
-                    if (Reader.HasRows)
-                    {
-                        dt.Load(Reader);
-                    }
-                    Reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.ToString());
-                }
-                finally
-                {
-                    connection.Close();
-                }
+                SqlDataReader reader = await command.ExecuteReaderAsync();
+                dt.Load(reader);
+                reader.Close();
             }
             return dt;
         }
 
-
-        public static async Task<int> AddNewPerson(string NationalNo, string FirstName, string SecondName,
-    string LastName, DateTime DateOfBirth, byte Gender, string Address, string Phone,
-    int NationalityCountryID, bool IsActive, string ThirdName = null, string Email = null, string ImagePath = null)
+        public static bool GetPersonInfoByID(int personID, ref string firstName, ref string secondName, ref string thirdName,
+            ref string lastName, ref DateTime dateOfBirth, ref short gender, ref string address,
+            ref string phone, ref string email, ref int nationalityCountryID, ref string imagePath,ref DateTime CreatedAt ,ref bool isActive)
         {
-            int NewPersonID = -1;
+            bool isFound = false;
 
-            try
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                connection.Open();
+                SqlCommand command = new SqlCommand("SP_GetPersonByID", connection)
                 {
-                    await connection.OpenAsync();
-                    using (SqlCommand command = new SqlCommand("SP_AddNewPerson", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
+                    CommandType = CommandType.StoredProcedure
+                };
+                command.Parameters.AddWithValue("@PersonID", personID);
 
-                        command.Parameters.AddWithValue("@NationalNo", NationalNo);
-                        command.Parameters.AddWithValue("@FirstName", FirstName);
-                        command.Parameters.AddWithValue("@SecondName", SecondName);
-                        command.Parameters.AddWithValue("@LastName", LastName);
-                        command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-                        command.Parameters.AddWithValue("@Gender", Gender);
-                        command.Parameters.AddWithValue("@Address", Address);
-                        command.Parameters.AddWithValue("@Phone", Phone);
-                        command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-                        command.Parameters.AddWithValue("@IsActive",IsActive);
-                        if (!string.IsNullOrEmpty(ThirdName))
-                            command.Parameters.AddWithValue("@ThirdName", ThirdName);
-                        else
-                            command.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+                SqlDataReader reader = command.ExecuteReader();
 
-                        if (!string.IsNullOrEmpty(Email))
-                            command.Parameters.AddWithValue("@Email", Email);
-                        else
-                            command.Parameters.AddWithValue("@Email", DBNull.Value);
-
-                        if (!string.IsNullOrEmpty(ImagePath))
-                            command.Parameters.AddWithValue("@ImagePath", ImagePath);
-                        else
-                            command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-
-                        SqlParameter outputIdParam = new SqlParameter("@PersonID", SqlDbType.Int)
-                        {
-                            Direction = ParameterDirection.Output
-                        };
-                        command.Parameters.Add(outputIdParam);
-
-                        await command.ExecuteNonQueryAsync();
-                        NewPersonID = (int)command.Parameters["@PersonID"].Value;
-                    }
+                if (reader.Read())
+                {
+                    isFound = true;
+                    firstName = (string)reader["FirstName"];
+                    secondName = (string)reader["SecondName"];
+                    thirdName = reader["ThirdName"] == DBNull.Value ? "" : (string)reader["ThirdName"];
+                    lastName = (string)reader["LastName"];
+                    dateOfBirth = (DateTime)reader["DateOfBirth"];
+                    gender = Convert.ToInt16(reader["Gender"]);
+                    address = (string)reader["Address"];
+                    phone = reader["Phone"] == DBNull.Value ? "" : (string)reader["Phone"];
+                    email = reader["Email"] == DBNull.Value ? "" : (string)reader["Email"];
+                    nationalityCountryID = (int)reader["NationalityCountryID"];
+                    imagePath = reader["ImagePath"] == DBNull.Value ? "" : (string)reader["ImagePath"];
+                    CreatedAt = (DateTime)reader["CreatedAt"];
+                    isActive = (bool)reader["IsActive"];
                 }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+                reader.Close();
             }
 
-            return NewPersonID;
+            return isFound;
         }
 
-
-
-        public static async Task<bool> UpdatePerson(int PersonID, string NationalNo, string FirstName,
-    string SecondName, string LastName, DateTime DateOfBirth, byte Gender, string Address,
-    string Phone, int NationalityCountryID, bool IsActive, string ThirdName = null,
-    string Email = null, string ImagePath = null)
+        public static async Task<int> AddNewPerson(string firstName, string secondName, string thirdName, string lastName,
+            DateTime dateOfBirth, short gender, string address, string phone, string email,
+            int nationalityCountryID, string imagePath,DateTime CreatedAt ,bool isActive)
         {
-            int rowsAffected = 0;
+            int newPersonID = -1;
 
-            try
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand("SP_AddNewPerson", connection)
                 {
-                    await connection.OpenAsync();
-                    using (SqlCommand command = new SqlCommand("SP_UpdatePerson", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
+                    CommandType = CommandType.StoredProcedure
+                };
 
-                        command.Parameters.AddWithValue("@PersonID", PersonID);
-                        command.Parameters.AddWithValue("@NationalNo", NationalNo);
-                        command.Parameters.AddWithValue("@FirstName", FirstName);
-                        command.Parameters.AddWithValue("@SecondName", SecondName);
-                        command.Parameters.AddWithValue("@LastName", LastName);
-                        command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
-                        command.Parameters.AddWithValue("@Gender", Gender);
-                        command.Parameters.AddWithValue("@Address", Address);
-                        command.Parameters.AddWithValue("@Phone", Phone);
-                        command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-                        command.Parameters.AddWithValue("@IsActive", IsActive);
+                command.Parameters.AddWithValue("@FirstName", firstName);
+                command.Parameters.AddWithValue("@SecondName", secondName);
+                command.Parameters.AddWithValue("@ThirdName", thirdName);
+                command.Parameters.AddWithValue("@LastName", lastName);
+                command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                command.Parameters.AddWithValue("@Gender", gender);
+                command.Parameters.AddWithValue("@Address", address);
+                command.Parameters.AddWithValue("@Phone", phone);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@NationalityCountryID", nationalityCountryID);
+                command.Parameters.AddWithValue("@ImagePath", imagePath);
+                command.Parameters.AddWithValue("@CreatedAt", CreatedAt);
+                command.Parameters.AddWithValue("@IsActive", isActive);
 
-                        if (!string.IsNullOrEmpty(ThirdName))
-                            command.Parameters.AddWithValue("@ThirdName", ThirdName);
-                        else
-                            command.Parameters.AddWithValue("@ThirdName", DBNull.Value);
+                SqlParameter outputIdParam = new SqlParameter("@NewPersonID", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.Output
+                };
+                command.Parameters.Add(outputIdParam);
 
-                        if (!string.IsNullOrEmpty(Email))
-                            command.Parameters.AddWithValue("@Email", Email);
-                        else
-                            command.Parameters.AddWithValue("@Email", DBNull.Value);
-
-                        if (!string.IsNullOrEmpty(ImagePath))
-                            command.Parameters.AddWithValue("@ImagePath", ImagePath);
-                        else
-                            command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-
-                        rowsAffected = await command.ExecuteNonQueryAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+               await command.ExecuteNonQueryAsync();
+                newPersonID = (int)outputIdParam.Value;
             }
 
-            return (rowsAffected > 0);
+            return newPersonID;
         }
 
-
-        public static async Task<bool> DeletePerson(int PersonID)
+        public static async Task<bool> UpdatePerson(int personID, string firstName, string secondName, string thirdName, string lastName,
+            DateTime dateOfBirth, short gender, string address, string phone, string email,
+            int nationalityCountryID, string imagePath, DateTime CreatedAt, bool isActive)
         {
             int rowsAffected = 0;
 
-            try
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand("SP_UpdatePerson", connection)
                 {
-                    await connection.OpenAsync();
-                    using (SqlCommand command = new SqlCommand("SP_DeletePerson", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@PersonID", PersonID);
-                        rowsAffected = await command.ExecuteNonQueryAsync();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.ToString());
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@PersonID", personID);
+                command.Parameters.AddWithValue("@FirstName", firstName);
+                command.Parameters.AddWithValue("@SecondName", secondName);
+                command.Parameters.AddWithValue("@ThirdName", thirdName);
+                command.Parameters.AddWithValue("@LastName", lastName);
+                command.Parameters.AddWithValue("@DateOfBirth", dateOfBirth);
+                command.Parameters.AddWithValue("@Gender", gender);
+                command.Parameters.AddWithValue("@Address", address);
+                command.Parameters.AddWithValue("@Phone", phone);
+                command.Parameters.AddWithValue("@Email", email);
+                command.Parameters.AddWithValue("@NationalityCountryID", nationalityCountryID);
+                command.Parameters.AddWithValue("@ImagePath", imagePath);
+                command.Parameters.AddWithValue("@CreatedAt", CreatedAt);
+                command.Parameters.AddWithValue("@IsActive", isActive);
+
+                rowsAffected = await command.ExecuteNonQueryAsync();
             }
 
-            return (rowsAffected > 0);
+            return rowsAffected > 0;
         }
+
+        public static async Task<bool> DeletePerson(int personID)
+        {
+            int rowsAffected = 0;
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand("SP_DeletePerson", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@PersonID", personID);
+                rowsAffected = await command.ExecuteNonQueryAsync();
+            }
+
+            return rowsAffected > 0;
+        }
+
+        public static async Task<bool> IsPersonExist(int personID)
+        {
+            bool exists = false;
+
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                await connection.OpenAsync();
+                SqlCommand command = new SqlCommand("SP_IsPersonExist", connection)
+                {
+                    CommandType = CommandType.StoredProcedure
+                };
+
+                command.Parameters.AddWithValue("@PersonID", personID);
+
+                SqlParameter returnParam = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                {
+                    Direction = ParameterDirection.ReturnValue
+                };
+                command.Parameters.Add(returnParam);
+
+                await command.ExecuteNonQueryAsync();
+                exists = (int)returnParam.Value == 1;
+            }
+
+            return exists;
+        }
+
     }
-
 }
