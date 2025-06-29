@@ -71,7 +71,7 @@ namespace IMS_DataAccess
 
         public static async Task<int> AddNewPerson(string firstName, string secondName, string thirdName, string lastName,
             DateTime dateOfBirth, short gender, string address, string phone, string email,
-            int nationalityCountryID, string imagePath,DateTime CreatedAt ,bool isActive)
+            int nationalityCountryID, string imagePath,bool isActive)
         {
             int newPersonID = -1;
 
@@ -94,7 +94,6 @@ namespace IMS_DataAccess
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@NationalityCountryID", nationalityCountryID);
                 command.Parameters.AddWithValue("@ImagePath", imagePath);
-                command.Parameters.AddWithValue("@CreatedAt", CreatedAt);
                 command.Parameters.AddWithValue("@IsActive", isActive);
 
                 SqlParameter outputIdParam = new SqlParameter("@NewPersonID", SqlDbType.Int)
@@ -112,7 +111,7 @@ namespace IMS_DataAccess
 
         public static async Task<bool> UpdatePerson(int personID, string firstName, string secondName, string thirdName, string lastName,
             DateTime dateOfBirth, short gender, string address, string phone, string email,
-            int nationalityCountryID, string imagePath, DateTime CreatedAt, bool isActive)
+            int nationalityCountryID, string imagePath, bool isActive)
         {
             int rowsAffected = 0;
 
@@ -136,7 +135,6 @@ namespace IMS_DataAccess
                 command.Parameters.AddWithValue("@Email", email);
                 command.Parameters.AddWithValue("@NationalityCountryID", nationalityCountryID);
                 command.Parameters.AddWithValue("@ImagePath", imagePath);
-                command.Parameters.AddWithValue("@CreatedAt", CreatedAt);
                 command.Parameters.AddWithValue("@IsActive", isActive);
 
                 rowsAffected = await command.ExecuteNonQueryAsync();

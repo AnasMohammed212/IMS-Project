@@ -76,5 +76,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IMS_Business\IMS_Business.csproj">
+      <Project>{1c608bb0-831b-4086-9604-4643af56a0c5}</Project>
+      <Name>IMS_Business</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -83,12 +83,12 @@ namespace IMS_Business
         }
         private async Task<bool> _AddNewPerson()
         {
-            this.PersonID= await clsPersonData.AddNewPerson(this.FirstName,this.SecondName,this.ThirdName,this.LastName,this.DateOfBirth,this.Gender,this.Address,this.Phone,this.Email,this.NationalityCountryID,this.ImagePath,this.CreatedAt,this.isActive);
+            this.PersonID= await clsPersonData.AddNewPerson(this.FirstName,this.SecondName,this.ThirdName,this.LastName,this.DateOfBirth,this.Gender,this.Address,this.Phone,this.Email,this.NationalityCountryID,this.ImagePath,this.isActive);
             return (this.PersonID != -1);
         }
         private async Task<bool> _UpdatePerson()
         {
-            return await clsPersonData.UpdatePerson(this.PersonID,this.FirstName,this.SecondName,this.ThirdName,this.LastName,this.DateOfBirth,this.Gender,this.Address,this.Phone,this.Email,this.NationalityCountryID,this.ImagePath,this.CreatedAt,this.isActive);
+            return await clsPersonData.UpdatePerson(this.PersonID,this.FirstName,this.SecondName,this.ThirdName,this.LastName,this.DateOfBirth,this.Gender,this.Address,this.Phone,this.Email,this.NationalityCountryID,this.ImagePath,this.isActive);
         }
         public async Task<bool> Save()
         {

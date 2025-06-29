@@ -48,7 +48,7 @@ namespace IMS_DataAccess
         }
 
 
-        public static async Task<bool> UpdateUser(int UserID, string UserName,
+        public static async Task<bool> UpdateUser(int UserID,int PersonID,string UserName,
     string Password ,bool IsActive)
         {
             int rowsAffected = 0;
@@ -61,8 +61,8 @@ namespace IMS_DataAccess
                     using (SqlCommand command = new SqlCommand("SP_UpdateUser", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
-
                         command.Parameters.AddWithValue("@UserID", UserID);
+                        command.Parameters.AddWithValue("@PersonID", PersonID);
                         command.Parameters.AddWithValue("@UserName", UserName);
                         command.Parameters.AddWithValue("@IsActive", IsActive);
 
@@ -84,7 +84,7 @@ namespace IMS_DataAccess
         }
 
 
-        public static bool GetUserInfoByID(int UserID,ref int PersonID,ref string Username,ref string Password,ref bool isActive)
+        public static bool GetUserInfoByUserID(int UserID,ref int PersonID,ref string Username,ref string Password,ref bool isActive)
         {
             bool isFound = false;
 
@@ -123,7 +123,45 @@ namespace IMS_DataAccess
             }
             return isFound;
         }
+        public static bool GetUserInfoByPersonID(int PersonID,ref int UserID, ref string Username, ref string Password, ref bool isActive)
+        {
+            bool isFound = false;
 
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("SP_GetUserByPersonID", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@PersonID", PersonID);
+
+                    SqlDataReader Reader = command.ExecuteReader();
+                    if (Reader.Read())
+                    {
+                        isFound = true;
+                        UserID = (int)Reader["UserID"];
+                        Username = (string)Reader["UserName"];
+                        Password = (string)Reader["Password"];
+                        isActive = (bool)Reader["IsActive"];
+                    }
+                    else
+                        isFound = false;
+                    Reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    isFound = false;
+                    Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return isFound;
+        }
         public static async Task<bool> IsUserExist(int UserID)
         {
             bool isFound = false;
