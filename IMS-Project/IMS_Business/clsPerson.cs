@@ -26,7 +26,7 @@ namespace IMS_Business
         public string Phone { get; set; }
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
-        //public clsCountry CountryInfo { get; set; }
+        public clsCountry CountryInfo { get; set; }
         public string ImagePath { get; set; }
         public DateTime CreatedAt { get; set; }
         public bool isActive {  get; set; }
@@ -66,8 +66,8 @@ namespace IMS_Business
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
             this.CreatedAt = CreatedAt;
-            //this.CountryInfo = clsCountry.Find(NationalityCountryID);
-            Mode= enMode.Update;
+            this.CountryInfo = clsCountry.Find(NationalityCountryID);
+            Mode = enMode.Update;
         }
         public static clsPerson Find(int PersonID)
         {

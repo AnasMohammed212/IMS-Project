@@ -10,7 +10,7 @@ namespace IMS_DataAccess
 {
     public class clsSupplierData
     {
-        public static bool GetSupplierInfoByID(int SupplierID, ref string SupplierName, ref string ContactPerson, ref string Email, ref string Phone, ref string Address)
+        public static bool GetSupplierInfoByID(int SupplierID, ref string SupplierName, ref int ContactPersonID)
         {
             bool isFound = false;
             try
@@ -28,10 +28,7 @@ namespace IMS_DataAccess
                         {
                             isFound = true;
                             SupplierName = (string)reader["SupplierName"];
-                            ContactPerson = reader["ContactPerson"] != DBNull.Value ? (string)reader["ContactPerson"] : null;
-                            Email = (string)reader["Email"];
-                            Phone = (string)reader["Phone"];
-                            Address = reader["Address"] != DBNull.Value ? (string)reader["Address"] : null;
+                            ContactPersonID = (int)reader["ContactPersonID"];
                         }
                     }
                 }
@@ -64,7 +61,7 @@ namespace IMS_DataAccess
             }
             return dt;
         }
-        public static async Task<bool> IsSupplierExist(Guid SupplierID)
+        public static async Task<bool> IsSupplierExist(int SupplierID)
         {
             bool isFound = false;
             try
@@ -93,7 +90,7 @@ namespace IMS_DataAccess
             }
             return isFound;
         }
-        public static async Task<int> AddNewSupplier(string SupplierName,string ContactPerson,string Email, string Phone, string Address)
+        public static async Task<int> AddNewSupplier(string SupplierName,int ContactPersonID)
         {
             int NewSupplierID = -1;
             try
@@ -105,10 +102,7 @@ namespace IMS_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@SupplierName", SupplierName);
-                        command.Parameters.AddWithValue("@ContactPerson", ContactPerson);
-                        command.Parameters.AddWithValue("@Email", Email);
-                        command.Parameters.AddWithValue("@Phone", Phone);
-                        command.Parameters.AddWithValue("@Address", Address);
+                        command.Parameters.AddWithValue("@ContactPersonID", ContactPersonID);
                         SqlParameter outputIdParam = new SqlParameter("@NewSupplierID", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
@@ -128,7 +122,7 @@ namespace IMS_DataAccess
             return NewSupplierID;
 
         }
-        public static async Task<bool> UpdateSupplier(int SupplierID,string SupplierName, string ContactPerson, string Email, string Phone, string Address)
+        public static async Task<bool> UpdateSupplier(int SupplierID,string SupplierName, int ContactPersonID)
         {
             int rowsAffected = 0;
             try
@@ -141,11 +135,7 @@ namespace IMS_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@SupplierID", SupplierID);
                         command.Parameters.AddWithValue("@SupplierName", SupplierName);
-                        command.Parameters.AddWithValue("@ContactPerson", ContactPerson);
-                        command.Parameters.AddWithValue("@Email", Email);
-                        command.Parameters.AddWithValue("@Phone", Phone);
-                        command.Parameters.AddWithValue("@Address", Address);
-
+                        command.Parameters.AddWithValue("@ContactPersonID", ContactPersonID);
                         rowsAffected = await command.ExecuteNonQueryAsync();
                     }
                 }
