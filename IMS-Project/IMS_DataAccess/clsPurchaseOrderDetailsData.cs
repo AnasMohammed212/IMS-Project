@@ -10,6 +10,40 @@ namespace IMS_DataAccess
 {
     public class clsPurchaseOrderDetailsData
     {
+        public static bool GetPurchaseOrderDetailByID(int DetailID, ref int PurchaseOrderID, ref int ProductID,
+                                              ref decimal Quantity, ref decimal UnitPrice)
+        {
+            bool isFound = false;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SP_GetDetailsByOrderID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@DetailID", DetailID);
+
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            isFound = true;
+                            PurchaseOrderID = (int)reader["PurchaseOrderID"];
+                            ProductID = (int)reader["ProductID"];
+                            Quantity = (decimal)reader["Quantity"];
+                            UnitPrice = (decimal)reader["UnitPrice"];
+                        }
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            return isFound;
+        }
         public static async Task<int> AddPurchaseOrderDetail(int PurchaseOrderID, int ProductID, decimal Quantity, decimal UnitPrice)
         {
             int NewID = -1;
