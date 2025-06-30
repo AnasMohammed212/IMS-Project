@@ -44,6 +44,7 @@
     <Compile Include="clsCountry.cs" />
     <Compile Include="clsPerson.cs" />
     <Compile Include="clsProduct.cs" />
+    <Compile Include="clsPurchaseOrder.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
