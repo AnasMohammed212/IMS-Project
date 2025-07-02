@@ -19,6 +19,7 @@ namespace IMS_Business
         public string TransactionType { get; set; }
         public DateTime TransactionDate { get; set; }
         public int PerformedByUserID { get; set; }
+        clsUser UserInfo { get; set; }
         public string Notes { get; set; }
 
         public clsInventoryTransaction()
@@ -43,6 +44,7 @@ namespace IMS_Business
             this.TransactionType = transactionType;
             this.TransactionDate = transactionDate;
             this.PerformedByUserID = performedByUserID;
+            this.UserInfo=clsUser.FindByPersonID(PerformedByUserID);
             this.Notes = notes;
             Mode = enMode.Update;
         }
