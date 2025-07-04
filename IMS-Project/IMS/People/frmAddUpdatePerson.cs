@@ -226,7 +226,20 @@ namespace IMS.People
             llRemoveImage.Visible = false;
         }
 
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtEmail.Text.Trim() == "")
+                return;
+            if (!clsValidation.ValidateEmail(txtEmail.Text))
+            {
+                e.Cancel = true;
+                errorProvider1.SetError(txtEmail, "Invalid Email Address Format!");
+            }
+            else
+                errorProvider1.SetError(txtEmail, null);
+        }
 
+   
 
 
     }
