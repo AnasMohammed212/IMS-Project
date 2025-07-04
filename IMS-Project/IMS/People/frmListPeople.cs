@@ -50,7 +50,8 @@ namespace IMS.People
 
         private void btnShowAddUpdatePerson_Click(object sender, EventArgs e)
         {
-
+            frmAddUpdatePerson frm= new frmAddUpdatePerson();
+            frm.ShowDialog();
         }
 
         private void txtFilterValue_TextChanged(object sender, EventArgs e)
@@ -108,6 +109,20 @@ namespace IMS.People
             else
                 _dtAllPeople.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, txtFilterValue.Text.Trim());
             lblRecordCount.Text = dgvPeople.Rows.Count.ToString();
+        }
+
+        private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frm=new frmAddUpdatePerson((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            LoadDataAsync();
+        }
+
+        private void addPersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
+            frm.ShowDialog();
+            LoadDataAsync();
         }
     }
     }
