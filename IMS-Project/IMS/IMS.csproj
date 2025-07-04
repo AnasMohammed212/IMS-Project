@@ -52,6 +52,13 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\clsUtil.cs" />
+    <Compile Include="People\frmAddUpdatePerson.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmAddUpdatePerson.Designer.cs">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
+    </Compile>
     <Compile Include="People\frmListPeople.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +69,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmAddUpdatePerson.resx">
+      <DependentUpon>frmAddUpdatePerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmListPeople.resx">
       <DependentUpon>frmListPeople.cs</DependentUpon>
@@ -109,6 +119,12 @@
       <Project>{1c608bb0-831b-4086-9604-4643af56a0c5}</Project>
       <Name>IMS_Business</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Male.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Female.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
