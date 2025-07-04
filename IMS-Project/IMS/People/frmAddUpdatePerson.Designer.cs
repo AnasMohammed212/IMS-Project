@@ -78,6 +78,7 @@
             this.llSetImage.TabIndex = 59;
             this.llSetImage.TabStop = true;
             this.llSetImage.Text = "Set Image";
+            this.llSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSetImage_LinkClicked_1);
             // 
             // llRemoveImage
             // 

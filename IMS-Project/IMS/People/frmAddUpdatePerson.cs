@@ -243,5 +243,18 @@ namespace IMS.People
         {
             this.Close();
         }
+
+        private void llSetImage_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            openFileDialog1.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog1.FilterIndex = 1;
+            openFileDialog1.RestoreDirectory = true;
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                string SelectedFilePath = openFileDialog1.FileName;
+                pbPersonImage.ImageLocation = SelectedFilePath;
+                llRemoveImage.Visible = true;
+            }
+        }
     }
 }
