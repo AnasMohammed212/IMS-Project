@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMS.People;
+using IMS.Users;
 
 namespace IMS
 {
@@ -22,6 +23,17 @@ namespace IMS
         {
             frmListPeople people = new frmListPeople();
             people.Show();
+        }
+
+        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListUsers frm=new frmListUsers();
+            frm.Show();
+        }
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

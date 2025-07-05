@@ -89,7 +89,7 @@ namespace IMS_Business
         }
         public static async Task<DataTable> GetAllUsers()
         {
-            return await clsUser.GetAllUsers();
+            return await clsUserData.GetAllUsers();
         }
         public static async Task<bool> IsUserExist(int UserID)
         {
