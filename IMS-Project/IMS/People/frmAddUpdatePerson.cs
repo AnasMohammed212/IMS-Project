@@ -69,7 +69,6 @@ namespace IMS.People
             txtSecondName.Text = "";
             txtThirdName.Text = "";
             txtLastName.Text = "";
-            txtNationalNo.Text = "";
             rbMale.Checked = true;
             txtPhone.Text = "";
             txtEmail.Text = "";
@@ -92,7 +91,7 @@ namespace IMS.People
             txtEmail.Text = _Person.Email;
             txtPhone.Text = _Person.Phone;
             rtxtAddress.Text = _Person.Address;
-            
+            cbCountry.Text = _Person.CountryInfo.CountryName;
             dtpDateOfBirth.Value = _Person.DateOfBirth;
             if (_Person.Gender == 1)
                 rbMale.Checked = true;

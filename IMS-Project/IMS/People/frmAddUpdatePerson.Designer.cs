@@ -46,8 +46,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.txtNationalNo = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDateOfBirth = new System.Windows.Forms.DateTimePicker();
             this.txtLastName = new System.Windows.Forms.TextBox();
@@ -95,7 +93,7 @@
             // 
             this.groupBox1.Controls.Add(this.rbMale);
             this.groupBox1.Controls.Add(this.rbFemale);
-            this.groupBox1.Location = new System.Drawing.Point(95, 207);
+            this.groupBox1.Location = new System.Drawing.Point(95, 172);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(164, 43);
             this.groupBox1.TabIndex = 56;
@@ -162,7 +160,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(338, 226);
+            this.txtEmail.Location = new System.Drawing.Point(92, 232);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(198, 22);
             this.txtEmail.TabIndex = 51;
@@ -171,7 +169,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(265, 222);
+            this.label11.Location = new System.Drawing.Point(19, 228);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 25);
             this.label11.TabIndex = 50;
@@ -216,7 +214,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(19, 217);
+            this.label8.Location = new System.Drawing.Point(19, 182);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(77, 25);
             this.label8.TabIndex = 45;
@@ -232,23 +230,6 @@
             this.lblTitle.Size = new System.Drawing.Size(277, 38);
             this.lblTitle.TabIndex = 44;
             this.lblTitle.Text = "Add New Person";
-            // 
-            // txtNationalNo
-            // 
-            this.txtNationalNo.Location = new System.Drawing.Point(182, 179);
-            this.txtNationalNo.Name = "txtNationalNo";
-            this.txtNationalNo.Size = new System.Drawing.Size(128, 22);
-            this.txtNationalNo.TabIndex = 43;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(19, 175);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(157, 25);
-            this.label6.TabIndex = 42;
-            this.label6.Text = "National Number";
             // 
             // label5
             // 
@@ -399,8 +380,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.txtNationalNo);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.dtpDateOfBirth);
             this.Controls.Add(this.txtLastName);
@@ -443,8 +422,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.TextBox txtNationalNo;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDateOfBirth;
         private System.Windows.Forms.TextBox txtLastName;

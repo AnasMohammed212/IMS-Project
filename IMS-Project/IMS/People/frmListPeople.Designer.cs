@@ -33,16 +33,16 @@
             this.lblFilterBy = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.dgvPeople = new System.Windows.Forms.DataGridView();
-            this.lblRecordCount = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnShowAddUpdatePerson = new System.Windows.Forms.Button();
             this.showPersonInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePersonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblRecordCount = new System.Windows.Forms.Label();
+            this.btnShowAddUpdatePerson = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -102,15 +102,6 @@
             this.dgvPeople.Size = new System.Drawing.Size(1200, 414);
             this.dgvPeople.TabIndex = 6;
             // 
-            // lblRecordCount
-            // 
-            this.lblRecordCount.AutoSize = true;
-            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordCount.Location = new System.Drawing.Point(37, 534);
-            this.lblRecordCount.Name = "lblRecordCount";
-            this.lblRecordCount.Size = new System.Drawing.Size(0, 32);
-            this.lblRecordCount.TabIndex = 11;
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -123,24 +114,7 @@
             this.sendEmailToolStripMenuItem,
             this.phonToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 166);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
-            // 
-            // btnShowAddUpdatePerson
-            // 
-            this.btnShowAddUpdatePerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAddUpdatePerson.Image = global::IMS.Properties.Resources.Person;
-            this.btnShowAddUpdatePerson.Location = new System.Drawing.Point(1133, 24);
-            this.btnShowAddUpdatePerson.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowAddUpdatePerson.Name = "btnShowAddUpdatePerson";
-            this.btnShowAddUpdatePerson.Size = new System.Drawing.Size(85, 80);
-            this.btnShowAddUpdatePerson.TabIndex = 9;
-            this.btnShowAddUpdatePerson.UseVisualStyleBackColor = true;
-            this.btnShowAddUpdatePerson.Click += new System.EventHandler(this.btnShowAddUpdatePerson_Click);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 194);
             // 
             // showPersonInfoToolStripMenuItem
             // 
@@ -148,6 +122,7 @@
             this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
             this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.showPersonInfoToolStripMenuItem.Text = "Show Person Info";
+            this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
             // 
             // addPersonToolStripMenuItem
             // 
@@ -172,6 +147,11 @@
             this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.deletePersonToolStripMenuItem.Text = "Delete Person";
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
@@ -185,6 +165,27 @@
             this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
             this.phonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.phonToolStripMenuItem.Text = "Phone Call";
+            // 
+            // lblRecordCount
+            // 
+            this.lblRecordCount.AutoSize = true;
+            this.lblRecordCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordCount.Location = new System.Drawing.Point(37, 534);
+            this.lblRecordCount.Name = "lblRecordCount";
+            this.lblRecordCount.Size = new System.Drawing.Size(0, 32);
+            this.lblRecordCount.TabIndex = 11;
+            // 
+            // btnShowAddUpdatePerson
+            // 
+            this.btnShowAddUpdatePerson.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAddUpdatePerson.Image = global::IMS.Properties.Resources.Person;
+            this.btnShowAddUpdatePerson.Location = new System.Drawing.Point(1133, 24);
+            this.btnShowAddUpdatePerson.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShowAddUpdatePerson.Name = "btnShowAddUpdatePerson";
+            this.btnShowAddUpdatePerson.Size = new System.Drawing.Size(85, 80);
+            this.btnShowAddUpdatePerson.TabIndex = 9;
+            this.btnShowAddUpdatePerson.UseVisualStyleBackColor = true;
+            this.btnShowAddUpdatePerson.Click += new System.EventHandler(this.btnShowAddUpdatePerson_Click);
             // 
             // frmListPeople
             // 

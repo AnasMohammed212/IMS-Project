@@ -124,6 +124,12 @@ namespace IMS.People
             frm.ShowDialog();
             LoadDataAsync();
         }
+
+        private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
     }
 
