@@ -18,6 +18,7 @@ namespace IMS.Users
         { 
             _dtAllUsers=await clsUser.GetAllUsers();
             dgvUsers.DataSource= _dtAllUsers;
+            cbFilterBy.SelectedIndex = 0;
             if (dgvUsers.Rows.Count > 0)
             {
                 dgvUsers.Columns[0].HeaderText = "User ID";
@@ -116,17 +117,17 @@ namespace IMS.Users
             {
                 case "All":
                     break;
-                case "Yes":
-                    FilterValue = "1";
+                case "True":
+                    FilterValue = "True";
                     break;
-                case "No":
-                    FilterValue = "0";
+                case "False":
+                    FilterValue = "False";
                     break;
             }
             if (FilterValue == "All")
                 _dtAllUsers.DefaultView.RowFilter = "";
             else
-                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] = {1}", FilterColumn, FilterValue);
+                _dtAllUsers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", FilterColumn, FilterValue);
             lblRecordsCount.Text = dgvUsers.Rows.Count.ToString();
         }
 
@@ -142,6 +143,11 @@ namespace IMS.Users
             else
                 MessageBox.Show("User is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             _LoadDataAsync();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

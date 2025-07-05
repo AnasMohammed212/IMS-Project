@@ -58,6 +58,7 @@
             this.btnClose.TabIndex = 7;
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblRecordsCount
             // 
@@ -87,8 +88,8 @@
             this.cbIsActive.FormattingEnabled = true;
             this.cbIsActive.Items.AddRange(new object[] {
             "All",
-            "Yes",
-            "No"});
+            "True",
+            "False"});
             this.cbIsActive.Location = new System.Drawing.Point(443, 97);
             this.cbIsActive.Name = "cbIsActive";
             this.cbIsActive.Size = new System.Drawing.Size(121, 24);
@@ -134,6 +135,7 @@
             // 
             // btnAddNewUser
             // 
+            this.btnAddNewUser.Image = global::IMS.Properties.Resources.Person;
             this.btnAddNewUser.Location = new System.Drawing.Point(1104, 50);
             this.btnAddNewUser.Name = "btnAddNewUser";
             this.btnAddNewUser.Size = new System.Drawing.Size(88, 85);
