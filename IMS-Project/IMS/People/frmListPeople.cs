@@ -14,13 +14,13 @@ namespace IMS.People
     {
         private static DataTable _dtAllPeople;
 
-        private async void LoadDataAsync()
+        private async void _LoadDataAsync()
         {
             _dtAllPeople = await clsPerson.GetAllPeople();
             _dtAllPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID",
                                  "FirstName", "SecondName", "ThirdName", "LastName",
                                  "GenderCaption", "DateOfBirth", "CountryName",
-                                 "Phone", "Email","Address","IsActiveCaption","CreatedAt");
+                                 "Phone", "Email", "Address", "IsActiveCaption", "CreatedAt");
             dgvPeople.DataSource = _dtAllPeople;
             lblRecordCount.Text = _dtAllPeople.Rows.Count.ToString();
         }
@@ -34,7 +34,7 @@ namespace IMS.People
 
         private void frmListPeople_Load(object sender, EventArgs e)
         {
-            LoadDataAsync();
+            _LoadDataAsync();
 
         }
 
@@ -50,7 +50,7 @@ namespace IMS.People
 
         private void btnShowAddUpdatePerson_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePerson frm= new frmAddUpdatePerson();
+            frmAddUpdatePerson frm = new frmAddUpdatePerson();
             frm.ShowDialog();
         }
 
@@ -62,7 +62,7 @@ namespace IMS.People
                 case "Person ID":
                     FilterColumn = "PersonID";
                     break;
-                
+
                 case "First Name":
                     FilterColumn = "FirstName";
                     break;
@@ -113,16 +113,16 @@ namespace IMS.People
 
         private void editPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddUpdatePerson frm=new frmAddUpdatePerson((int)dgvPeople.CurrentRow.Cells[0].Value);
+            frmAddUpdatePerson frm = new frmAddUpdatePerson((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
-            LoadDataAsync();
+            _LoadDataAsync();
         }
 
         private void addPersonToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdatePerson frm = new frmAddUpdatePerson();
             frm.ShowDialog();
-            LoadDataAsync();
+            _LoadDataAsync();
         }
 
         private void showPersonInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -130,6 +130,34 @@ namespace IMS.People
             frmShowPersonInfo frm = new frmShowPersonInfo((int)dgvPeople.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
-    }
-    }
 
+        private async void deletePersonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to delete Person [" + dgvPeople.CurrentRow.Cells[0].Value + "]", "Confirm Delete", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+
+            {
+
+                if (await clsPerson.DeletePerson((int)dgvPeople.CurrentRow.Cells[0].Value))
+                {
+                    MessageBox.Show("Person Deleted Successfully.", "Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _LoadDataAsync();
+                }
+
+                else
+                    MessageBox.Show("Person was not deleted because it has data linked to it.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry this Service is Not implemented Yet! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void phonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Sorry this Service is Not implemented Yet! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+    }
+}
+    
+    
