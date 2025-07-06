@@ -98,7 +98,7 @@ namespace IMS_Business
 
         public static async Task<bool> DeleteUser(int UserID)
         {
-            return await clsUser.DeleteUser(UserID);
+            return await clsUserData.DeleteUser(UserID);
         }
     }
 }

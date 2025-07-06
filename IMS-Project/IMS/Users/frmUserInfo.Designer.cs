@@ -1,6 +1,6 @@
-﻿namespace IMS.People
+﻿namespace IMS.Users
 {
-    partial class frmShowPersonInfo
+    partial class frmUserInfo
     {
         /// <summary>
         /// Required designer variable.
@@ -28,48 +28,45 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new IMS.People.Controls.ctrlPersonCard();
+            this.ctrlUserCard1 = new IMS.Users.ctrlUserCard();
             this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // ctrlPersonCard1
+            // ctrlUserCard1
             // 
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(8, 12);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(872, 266);
-            this.ctrlPersonCard1.TabIndex = 0;
+            this.ctrlUserCard1.Location = new System.Drawing.Point(12, 12);
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
+            this.ctrlUserCard1.Size = new System.Drawing.Size(894, 455);
+            this.ctrlUserCard1.TabIndex = 0;
             // 
             // btnClose
             // 
-            this.btnClose.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnClose.Location = new System.Drawing.Point(731, 285);
-            this.btnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(761, 473);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(147, 46);
+            this.btnClose.Size = new System.Drawing.Size(131, 44);
             this.btnClose.TabIndex = 3;
             this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // frmShowPersonInfo
+            // frmUserInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(891, 346);
+            this.ClientSize = new System.Drawing.Size(904, 532);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.ctrlPersonCard1);
-            this.Name = "frmShowPersonInfo";
-            this.Text = "frmShowPersonInfo";
+            this.Controls.Add(this.ctrlUserCard1);
+            this.Name = "frmUserInfo";
+            this.Text = "frmUserInfo";
+            this.Load += new System.EventHandler(this.frmUserInfo_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Controls.ctrlPersonCard ctrlPersonCard1;
+        private ctrlUserCard ctrlUserCard1;
         private System.Windows.Forms.Button btnClose;
     }
 }

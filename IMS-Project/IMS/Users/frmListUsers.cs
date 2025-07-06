@@ -149,5 +149,11 @@ namespace IMS.Users
         {
             this.Close();
         }
+
+        private void showUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserInfo frm=new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

@@ -32,11 +32,6 @@
             this.btnClose = new System.Windows.Forms.Button();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.dgvUsers = new System.Windows.Forms.DataGridView();
-            this.cbIsActive = new System.Windows.Forms.ComboBox();
-            this.txtFilterValue = new System.Windows.Forms.TextBox();
-            this.lblFilterBy = new System.Windows.Forms.Label();
-            this.cbFilterBy = new System.Windows.Forms.ComboBox();
-            this.btnAddNewUser = new System.Windows.Forms.Button();
             this.cmsUser = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addUserToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +40,11 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbIsActive = new System.Windows.Forms.ComboBox();
+            this.txtFilterValue = new System.Windows.Forms.TextBox();
+            this.lblFilterBy = new System.Windows.Forms.Label();
+            this.cbFilterBy = new System.Windows.Forms.ComboBox();
+            this.btnAddNewUser = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsers)).BeginInit();
             this.cmsUser.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +82,69 @@
             this.dgvUsers.RowTemplate.Height = 24;
             this.dgvUsers.Size = new System.Drawing.Size(1164, 325);
             this.dgvUsers.TabIndex = 5;
+            // 
+            // cmsUser
+            // 
+            this.cmsUser.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showUserInfoToolStripMenuItem,
+            this.addUserToolStripMenuItem,
+            this.editUserToolStripMenuItem,
+            this.deleteUserToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.sendEmailToolStripMenuItem,
+            this.phonToolStripMenuItem});
+            this.cmsUser.Name = "contextMenuStrip1";
+            this.cmsUser.Size = new System.Drawing.Size(215, 194);
+            // 
+            // showUserInfoToolStripMenuItem
+            // 
+            this.showUserInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
+            this.showUserInfoToolStripMenuItem.Name = "showUserInfoToolStripMenuItem";
+            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showUserInfoToolStripMenuItem.Text = "Show User Info";
+            this.showUserInfoToolStripMenuItem.Click += new System.EventHandler(this.showUserInfoToolStripMenuItem_Click);
+            // 
+            // addUserToolStripMenuItem
+            // 
+            this.addUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
+            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.addUserToolStripMenuItem.Text = "Add User";
+            // 
+            // editUserToolStripMenuItem
+            // 
+            this.editUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
+            this.editUserToolStripMenuItem.Name = "editUserToolStripMenuItem";
+            this.editUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editUserToolStripMenuItem.Text = "Edit User";
+            // 
+            // deleteUserToolStripMenuItem
+            // 
+            this.deleteUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
+            this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
+            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteUserToolStripMenuItem.Text = "Delete User";
+            this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.deleteUserToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // phonToolStripMenuItem
+            // 
+            this.phonToolStripMenuItem.Image = global::IMS.Properties.Resources.Phone;
+            this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
+            this.phonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.phonToolStripMenuItem.Text = "Phone Call";
             // 
             // cbIsActive
             // 
@@ -141,68 +204,6 @@
             this.btnAddNewUser.Size = new System.Drawing.Size(88, 85);
             this.btnAddNewUser.TabIndex = 9;
             this.btnAddNewUser.UseVisualStyleBackColor = true;
-            // 
-            // cmsUser
-            // 
-            this.cmsUser.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsUser.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showUserInfoToolStripMenuItem,
-            this.addUserToolStripMenuItem,
-            this.editUserToolStripMenuItem,
-            this.deleteUserToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.sendEmailToolStripMenuItem,
-            this.phonToolStripMenuItem});
-            this.cmsUser.Name = "contextMenuStrip1";
-            this.cmsUser.Size = new System.Drawing.Size(182, 166);
-            // 
-            // showUserInfoToolStripMenuItem
-            // 
-            this.showUserInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
-            this.showUserInfoToolStripMenuItem.Name = "showUserInfoToolStripMenuItem";
-            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.showUserInfoToolStripMenuItem.Text = "Show User Info";
-            // 
-            // addUserToolStripMenuItem
-            // 
-            this.addUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
-            this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.addUserToolStripMenuItem.Text = "Add User";
-            // 
-            // editUserToolStripMenuItem
-            // 
-            this.editUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
-            this.editUserToolStripMenuItem.Name = "editUserToolStripMenuItem";
-            this.editUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.editUserToolStripMenuItem.Text = "Edit User";
-            // 
-            // deleteUserToolStripMenuItem
-            // 
-            this.deleteUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
-            this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.deleteUserToolStripMenuItem.Text = "Delete User";
-            this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.deleteUserToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
-            // 
-            // sendEmailToolStripMenuItem
-            // 
-            this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
-            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.sendEmailToolStripMenuItem.Text = "Send Email";
-            // 
-            // phonToolStripMenuItem
-            // 
-            this.phonToolStripMenuItem.Image = global::IMS.Properties.Resources.Phone;
-            this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
-            this.phonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.phonToolStripMenuItem.Text = "Phone Call";
             // 
             // frmListUsers
             // 

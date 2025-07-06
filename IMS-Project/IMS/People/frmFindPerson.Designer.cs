@@ -37,14 +37,14 @@
             this.ctrlPersonCardWithFilter1.Name = "ctrlPersonCardWithFilter1";
             this.ctrlPersonCardWithFilter1.SearchEnabled = true;
             this.ctrlPersonCardWithFilter1.ShowAddPerson = true;
-            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(862, 395);
+            this.ctrlPersonCardWithFilter1.Size = new System.Drawing.Size(873, 382);
             this.ctrlPersonCardWithFilter1.TabIndex = 0;
             // 
             // frmFindPerson
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(876, 406);
+            this.ClientSize = new System.Drawing.Size(914, 406);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
             this.Name = "frmFindPerson";
             this.Text = "frmFindPerson";
