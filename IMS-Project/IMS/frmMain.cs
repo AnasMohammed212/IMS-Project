@@ -19,21 +19,23 @@ namespace IMS
             InitializeComponent();
         }
 
-        private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
+      
+
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void peopleToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmListPeople people = new frmListPeople();
             people.Show();
         }
 
-        private void usersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void usersToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            frmListUsers frm=new frmListUsers();
+            frmListUsers frm = new frmListUsers();
             frm.Show();
-        }
-
-        private void frmMain_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
