@@ -155,5 +155,25 @@ namespace IMS.Users
             frmUserInfo frm=new frmUserInfo((int)dgvUsers.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
+
+        private void addUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUser frm = new frmAddUpdateUser();
+            frm.ShowDialog();
+            _LoadDataAsync();
+        }
+
+        private void editUserToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUser frm=new frmAddUpdateUser((int)dgvUsers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _LoadDataAsync();
+        }
+
+        private void btnAddNewUser_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateUser frm=new frmAddUpdateUser();
+            frm.ShowDialog();
+        }
     }
 }

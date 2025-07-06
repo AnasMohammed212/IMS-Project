@@ -93,12 +93,16 @@ namespace IMS_Business
         }
         public static async Task<bool> IsUserExist(int UserID)
         {
-            return await clsUser.IsUserExist(UserID);
+            return await clsUserData.IsUserExist(UserID);
         }
 
         public static async Task<bool> DeleteUser(int UserID)
         {
             return await clsUserData.DeleteUser(UserID);
+        }
+        public static async Task<bool> IsUserExistForPersonID(int PersonID)
+        {
+            return await clsUserData.IsUserExistForPersonID(PersonID);
         }
     }
 }

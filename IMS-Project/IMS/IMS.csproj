@@ -98,6 +98,12 @@
     <Compile Include="Users\ctrlUserCard.Designer.cs">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users\frmAddUpdateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users\frmAddUpdateUser.Designer.cs">
+      <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\frmListUsers.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </Compile>
     <EmbeddedResource Include="Users\ctrlUserCard.resx">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users\frmAddUpdateUser.resx">
+      <DependentUpon>frmAddUpdateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\frmListUsers.resx">
       <DependentUpon>frmListUsers.cs</DependentUpon>
@@ -222,6 +231,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Password.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

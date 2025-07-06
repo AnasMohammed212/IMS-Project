@@ -199,7 +199,6 @@ namespace IMS_DataAccess
             return isFound;
         }
 
-
         public static async Task<DataTable> GetAllUsers()
         {
             DataTable dt = new DataTable();
@@ -230,7 +229,42 @@ namespace IMS_DataAccess
             }
             return dt;
         }
+        public static async Task<bool> IsUserExistForPersonID(int PersonID)
+        {
+            bool isFound = false;
 
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("SP_IsUserExistForPersonID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+
+                        command.Parameters.AddWithValue("@PersonID", PersonID);
+
+
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Bit)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        await command.ExecuteNonQueryAsync();
+                        isFound = ((int)returnParameter.Value) == 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                isFound = false;
+            }
+
+            return isFound;
+        }
         public static async Task<bool> DeleteUser(int UserID)
         {
             int rowsAffected = 0;

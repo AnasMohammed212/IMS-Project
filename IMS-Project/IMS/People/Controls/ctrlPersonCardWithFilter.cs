@@ -121,5 +121,9 @@ namespace IMS.People.Controls
             txtSearchValue.Text = PersonID.ToString();
             ctrlPersonCard1.LoadPersonInfo(PersonID);
         }
+        public void FilterFocus()
+        {
+            txtSearchValue.Focus();
+        }
     }
 }

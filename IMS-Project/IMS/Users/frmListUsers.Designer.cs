@@ -95,7 +95,7 @@
             this.sendEmailToolStripMenuItem,
             this.phonToolStripMenuItem});
             this.cmsUser.Name = "contextMenuStrip1";
-            this.cmsUser.Size = new System.Drawing.Size(215, 194);
+            this.cmsUser.Size = new System.Drawing.Size(182, 166);
             // 
             // showUserInfoToolStripMenuItem
             // 
@@ -111,6 +111,7 @@
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
             this.addUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.addUserToolStripMenuItem.Text = "Add User";
+            this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
             // editUserToolStripMenuItem
             // 
@@ -118,6 +119,7 @@
             this.editUserToolStripMenuItem.Name = "editUserToolStripMenuItem";
             this.editUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.editUserToolStripMenuItem.Text = "Edit User";
+            this.editUserToolStripMenuItem.Click += new System.EventHandler(this.editUserToolStripMenuItem_Click);
             // 
             // deleteUserToolStripMenuItem
             // 
@@ -204,6 +206,7 @@
             this.btnAddNewUser.Size = new System.Drawing.Size(88, 85);
             this.btnAddNewUser.TabIndex = 9;
             this.btnAddNewUser.UseVisualStyleBackColor = true;
+            this.btnAddNewUser.Click += new System.EventHandler(this.btnAddNewUser_Click);
             // 
             // frmListUsers
             // 
