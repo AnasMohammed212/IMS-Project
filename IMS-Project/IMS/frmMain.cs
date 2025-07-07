@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMS.Login;
 using IMS.People;
 using IMS.Users;
 
@@ -14,9 +15,11 @@ namespace IMS
 {
     public partial class frmMain : Form
     {
-        public frmMain()
+        private frmLogin _frmLogin;
+        public frmMain(frmLogin frmlogin)
         {
             InitializeComponent();
+            _frmLogin = frmlogin;
         }
 
       

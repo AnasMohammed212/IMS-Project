@@ -60,6 +60,16 @@ namespace IMS_Business
             else
                 return null;
         }
+        public static clsUser FindByUserNameAndPassword(string UserName, string Password)
+        {
+            int PersonID = -1, UserID = -1;
+            bool IsActive = true;
+            bool IsFound=clsUserData.FindByUserNameAndPassword(UserName,Password,ref PersonID,ref UserID,ref IsActive);
+            if (IsFound)
+                return new clsUser(UserID, PersonID, UserName, Password, IsActive);
+            else return null;
+
+        }
         private async Task<bool>_AddNewUser()
         {
             this.UserID = await clsUserData.AddNewUser(this.PersonID, this.UserName, this.Password, this.IsActive);
@@ -104,5 +114,6 @@ namespace IMS_Business
         {
             return await clsUserData.IsUserExistForPersonID(PersonID);
         }
+       
     }
 }

@@ -198,7 +198,44 @@ namespace IMS_DataAccess
 
             return isFound;
         }
+        public static bool FindByUserNameAndPassword(string Username, string Password,ref int PersonID,ref int UserID,ref bool IsActive)
+        {
+            bool isFound = false;
 
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+
+                try
+                {
+                    connection.Open();
+                    SqlCommand command = new SqlCommand("SP_FindByUserNameAndPassword", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@Username", Username);
+                    command.Parameters.AddWithValue("@Password", Password);
+                    SqlDataReader Reader = command.ExecuteReader();
+                    if (Reader.Read())
+                    {
+                        isFound = true;
+                        PersonID = (int)Reader["PersonID"];
+                        UserID = (int)Reader["UserID"];
+                        IsActive = (bool)Reader["IsActive"];
+                    }
+                    else
+                        isFound = false;
+                    Reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    isFound = false;
+                    Console.WriteLine(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            return isFound;
+        }
         public static async Task<DataTable> GetAllUsers()
         {
             DataTable dt = new DataTable();
