@@ -25,9 +25,9 @@ namespace IMS.Users
             txtCurrentPassword.Text = "";
             txtNewPassword.Text = "";
             txtConfirmPassword.Text = "";
-            txtCurrentPassword.Focus();
+            
         }
-        private void frmChangePassword_Load(object sender, EventArgs e)
+        private void frmChangePassword_Load_1(object sender, EventArgs e)
         {
             _User = clsUser.FindByUserID(_UserID);
             if (_User == null)
@@ -39,7 +39,6 @@ namespace IMS.Users
             }
             ctrlUserCard1.LoadUserInfo(_UserID);
         }
-
 
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -69,6 +68,7 @@ namespace IMS.Users
 
         private void txtCurrentPassword_Validating(object sender, CancelEventArgs e)
         {
+            
             if (string.IsNullOrEmpty(txtCurrentPassword.Text.Trim()))
             {
                 e.Cancel = true;
@@ -110,5 +110,7 @@ namespace IMS.Users
             else
                 errorProvider1.SetError(txtNewPassword, null);
         }
+
+        
     }
 }

@@ -73,6 +73,7 @@ namespace IMS.Login
                 this.Hide();
                 frmMain main = new frmMain(this);
                 main.ShowDialog();
+                this.Close();
 
             }
             else
