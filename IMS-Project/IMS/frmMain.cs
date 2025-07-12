@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using IMS.Global_Classes;
 using IMS.Login;
 using IMS.People;
+using IMS.Products;
 using IMS.Users;
 
 namespace IMS
@@ -65,6 +66,12 @@ namespace IMS
         {
             Application.Exit();
             
+        }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListProducts frm=new frmListProducts();
+            frm.Show();
         }
     }
 }
