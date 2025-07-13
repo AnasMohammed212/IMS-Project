@@ -30,6 +30,7 @@ namespace IMS.Products
         {
             InitializeComponent();
             _ProductID = ProducID;
+            _Mode = enMode.Update;
         }
         private async Task _FillCategoriesInComboBox()
         {
@@ -61,7 +62,10 @@ namespace IMS.Products
             }
             else
                 lblTitle.Text = "Update Product";
-           
+            cbSupplier.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbUnit.DropDownStyle = ComboBoxStyle.DropDownList;
+
             cbCategory.SelectedIndex = 0;
             cbSupplier.SelectedIndex = 0;
             cbUnit.SelectedIndex = 0;
@@ -235,12 +239,12 @@ namespace IMS.Products
             {
                 errorProvider1.SetError(cbSupplier, null);
             };
-            if (!await clsSupplier.IsSupplierExist(cbSupplier.Text.Trim()))
-            {
-                e.Cancel = true;
-                errorProvider1.SetError(cbSupplier, "Supplier Not Found!");
-                return;
-            }
+            //if (!await clsSupplier.IsSupplierExist(cbSupplier.Text.Trim()))
+            //{
+            //    e.Cancel = true;
+            //    errorProvider1.SetError(cbSupplier, "Supplier Not Found!");
+            //    return;
+            //}
         }
 
         private async void cbUnit_Validating(object sender, CancelEventArgs e)

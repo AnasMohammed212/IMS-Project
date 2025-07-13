@@ -113,5 +113,33 @@ namespace IMS.Products
             frmAddUpdateProduct frmAddUpdateProduct = new frmAddUpdateProduct();
             frmAddUpdateProduct.ShowDialog();
         }
+
+        private void addProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateProduct frm = new frmAddUpdateProduct();
+            frm.ShowDialog();
+            _LoadDataAsync();
+        }
+
+        private void editProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateProduct frm =new frmAddUpdateProduct((int)dgvProducts.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            _LoadDataAsync();
+        }
+
+        private async void deleteProductToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int ProductID = (int)dgvProducts.CurrentRow.Cells[0].Value;
+            if (await clsProduct.DeleteProduct(ProductID))
+            {
+                MessageBox.Show("Product has been deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmListProducts_Load(null, null);
+            }
+
+            else
+                MessageBox.Show("Product is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            _LoadDataAsync();
+        }
     }
 }

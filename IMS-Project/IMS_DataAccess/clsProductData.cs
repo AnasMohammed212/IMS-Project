@@ -168,7 +168,7 @@ namespace IMS_DataAccess
                 {
                     await connection.OpenAsync();
 
-                    using (SqlCommand command = new SqlCommand("UpdateProduct", connection))
+                    using (SqlCommand command = new SqlCommand("SP_UpdateProduct", connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
 
