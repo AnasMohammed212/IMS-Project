@@ -97,6 +97,12 @@
     <Compile Include="People\frmShowPersonInfo.Designer.cs">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\ctrlProductCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Products\ctrlProductCard.Designer.cs">
+      <DependentUpon>ctrlProductCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Products\frmAddUpdateProduct.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmShowPersonInfo.resx">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Products\ctrlProductCard.resx">
+      <DependentUpon>ctrlProductCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\frmAddUpdateProduct.resx">
       <DependentUpon>frmAddUpdateProduct.cs</DependentUpon>
