@@ -13,11 +13,14 @@ namespace IMS_Business
         public string ProductName { get; set; }
         public string Description { get; set; }
         public int CategoryID { get; set; }
+        public clsCategory CategoryInfo;
         public int SupplierID { get; set; }
+        public clsSupplier SupplierInfo;
         public decimal PurchasePrice { get; set; }
         public decimal SalePrice { get; set; }
         public int UnitID { get; set; }
-
+        public clsUnitOfMeasure UnitInfo;
+        
         public clsProduct()
         {
             this.ProductID = -1;
@@ -38,10 +41,13 @@ namespace IMS_Business
             this.ProductName = productName;
             this.Description = description;
             this.CategoryID = categoryID;
+            this.CategoryInfo=clsCategory.Find(this.CategoryID);
             this.SupplierID = supplierID;
+            this.SupplierInfo=clsSupplier.Find(this.SupplierID);
             this.PurchasePrice = purchasePrice;
             this.SalePrice = salePrice;
             this.UnitID = unitID;
+            this.UnitInfo=clsUnitOfMeasure.Find(this.UnitID);
             Mode = enMode.Update;
         }
 

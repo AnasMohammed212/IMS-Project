@@ -107,5 +107,11 @@ namespace IMS.Products
                 txtFilterValue.Focus();
             }
         }
+
+        private void btnShowAddUpdateProduct_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateProduct frmAddUpdateProduct = new frmAddUpdateProduct();
+            frmAddUpdateProduct.ShowDialog();
+        }
     }
 }

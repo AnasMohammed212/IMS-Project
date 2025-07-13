@@ -53,6 +53,7 @@
     <Compile Include="clsPurchaseOrderDetailsData.cs" />
     <Compile Include="clsStockData.cs" />
     <Compile Include="clsSupplierData.cs" />
+    <Compile Include="clsUnitOfMeasureData.cs" />
     <Compile Include="clsUserData.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

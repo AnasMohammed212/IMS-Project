@@ -50,6 +50,7 @@
     <Compile Include="clsPurchaseOrderDetail.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsSupplier.cs" />
+    <Compile Include="clsUnitOfMeasure.cs" />
     <Compile Include="clsUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

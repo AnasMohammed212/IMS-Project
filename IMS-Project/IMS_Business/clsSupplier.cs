@@ -39,6 +39,16 @@ namespace IMS_Business
             else
                 return null;
         }
+        public static clsSupplier Find(string SupplierName)
+        {
+            int ContactPersonID = -1, SupplierID = -1;
+            
+            bool IsFound = clsSupplierData.GetSupplierInfoByName(ref SupplierID, SupplierName, ref ContactPersonID);
+            if (IsFound)
+                return new clsSupplier(SupplierID, SupplierName, ContactPersonID);
+            else
+                return null;
+        }
         private async Task<bool> _AddNewSupplier()
         {
             this.SupplierID= await clsSupplierData.AddNewSupplier(this.SupplierName,this.ContactPersonID);
@@ -66,7 +76,7 @@ namespace IMS_Business
             }
             return false;
         }
-        public static async Task<DataTable> DeleteSupplier()
+        public static async Task<DataTable> GetAllSuppliers()
         {
             return await clsSupplierData.GetAllSuppliers();
         }
@@ -78,5 +88,10 @@ namespace IMS_Business
         {
             return await clsSupplierData.IsSupplierExist(SupplierID);
         }
+        public static async Task<bool> IsSupplierExist(string supplierName)
+        {
+            return await clsSupplierData.IsSupplierExist(supplierName);
+        }
+
     }
 }

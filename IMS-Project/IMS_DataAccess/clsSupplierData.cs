@@ -39,6 +39,35 @@ namespace IMS_DataAccess
             }
             return isFound;
         }
+        public static bool GetSupplierInfoByName(ref int SupplierID,  string SupplierName, ref int ContactPersonID)
+        {
+            bool isFound = false;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    connection.Open();
+                    using (SqlCommand command = new SqlCommand("SP_GetSupplierByName", connection))
+                    {
+
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierName", SupplierName);
+                        SqlDataReader reader = command.ExecuteReader();
+                        if (reader.Read())
+                        {
+                            isFound = true;
+                            SupplierID = (int)reader["SupplierID"];
+                            ContactPersonID = (int)reader["ContactPersonID"];
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return isFound;
+        }
         public static async Task<DataTable> GetAllSuppliers()
         {
             DataTable dt = new DataTable();
@@ -88,6 +117,38 @@ namespace IMS_DataAccess
             {
                 return false;
             }
+            return isFound;
+        }
+        public static async Task<bool> IsSupplierExist(string SupplierName)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("SP_IsSupplierExistByName", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@SupplierName", SupplierName);
+
+                        SqlParameter returnParameter = new SqlParameter("@ReturnVal", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.ReturnValue
+                        };
+                        command.Parameters.Add(returnParameter);
+
+                        await command.ExecuteNonQueryAsync();
+                        isFound = (int)returnParameter.Value == 1;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
             return isFound;
         }
         public static async Task<int> AddNewSupplier(string SupplierName,int ContactPersonID)

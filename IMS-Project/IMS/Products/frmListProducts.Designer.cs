@@ -90,13 +90,14 @@
             // btnShowAddUpdateProduct
             // 
             this.btnShowAddUpdateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAddUpdateProduct.Image = global::IMS.Properties.Resources.Person;
+            this.btnShowAddUpdateProduct.Image = global::IMS.Properties.Resources.Products;
             this.btnShowAddUpdateProduct.Location = new System.Drawing.Point(1160, 44);
             this.btnShowAddUpdateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShowAddUpdateProduct.Name = "btnShowAddUpdateProduct";
             this.btnShowAddUpdateProduct.Size = new System.Drawing.Size(85, 80);
             this.btnShowAddUpdateProduct.TabIndex = 14;
             this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
+            this.btnShowAddUpdateProduct.Click += new System.EventHandler(this.btnShowAddUpdateProduct_Click);
             // 
             // btnClose
             // 

@@ -28,6 +28,7 @@ namespace IMS.People
         public frmAddUpdatePerson()
         {
             InitializeComponent();
+            _Mode=enMode.AddNew;
         }
         public frmAddUpdatePerson(int PersonID)
         {

@@ -154,6 +154,7 @@ namespace IMS_DataAccess
             {
                 Console.WriteLine(ex.Message);
             }
+            Console.WriteLine($"Adding Product: {ProductName}, {Description}, CatID: {CategoryID}, SupplierID: {SupplierID}, PurchasePrice: {PurchasePrice}, SalePrice: {SalePrice}, UnitID: {UnitID}");
 
             return NewProductID;
         }

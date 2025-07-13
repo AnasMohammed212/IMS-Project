@@ -39,7 +39,15 @@ namespace IMS_Business
             else
                 return null;
         }
-
+        public static clsCategory Find(string categoryName)
+        {
+            int categoryID = -1;
+            bool isFound = clsCategoryData.GetCategoryInfoByName(ref categoryID, categoryName);
+            if (isFound)
+                return new clsCategory(categoryID, categoryName);
+            else
+                return null;
+        }
         private async Task<bool> _AddNewCategory()
         {
             this.CategoryID = await clsCategoryData.AddNewCategory(this.CategoryName);
@@ -84,5 +92,10 @@ namespace IMS_Business
         {
             return await clsCategoryData.IsCategoryExist(categoryID);
         }
+        public static async Task<bool> IsCategoryExist(string categoryName)
+        {
+            return await clsCategoryData.IsCategoryExist(categoryName);
+        }
+
     }
 }
