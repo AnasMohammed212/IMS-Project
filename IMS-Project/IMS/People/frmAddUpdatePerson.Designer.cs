@@ -390,6 +390,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFirstName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddUpdatePerson";
             this.Text = "frmAddUpdatePerson";
             this.Load += new System.EventHandler(this.frmAddUpdatePerson_Load);

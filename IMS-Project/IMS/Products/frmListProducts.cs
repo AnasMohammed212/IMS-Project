@@ -141,5 +141,11 @@ namespace IMS.Products
                 MessageBox.Show("Product is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
             _LoadDataAsync();
         }
+
+        private void showProductInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowProductInfo frm = new frmShowProductInfo((int)dgvProducts.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

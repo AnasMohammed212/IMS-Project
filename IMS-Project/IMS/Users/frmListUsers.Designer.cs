@@ -101,7 +101,7 @@
             // 
             this.showUserInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
             this.showUserInfoToolStripMenuItem.Name = "showUserInfoToolStripMenuItem";
-            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showUserInfoToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.showUserInfoToolStripMenuItem.Text = "Show User Info";
             this.showUserInfoToolStripMenuItem.Click += new System.EventHandler(this.showUserInfoToolStripMenuItem_Click);
             // 
@@ -109,7 +109,7 @@
             // 
             this.addUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
             this.addUserToolStripMenuItem.Name = "addUserToolStripMenuItem";
-            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.addUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.addUserToolStripMenuItem.Text = "Add User";
             this.addUserToolStripMenuItem.Click += new System.EventHandler(this.addUserToolStripMenuItem_Click);
             // 
@@ -117,7 +117,7 @@
             // 
             this.editUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
             this.editUserToolStripMenuItem.Name = "editUserToolStripMenuItem";
-            this.editUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.editUserToolStripMenuItem.Text = "Edit User";
             this.editUserToolStripMenuItem.Click += new System.EventHandler(this.editUserToolStripMenuItem_Click);
             // 
@@ -125,27 +125,27 @@
             // 
             this.deleteUserToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
             this.deleteUserToolStripMenuItem.Name = "deleteUserToolStripMenuItem";
-            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteUserToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.deleteUserToolStripMenuItem.Text = "Delete User";
             this.deleteUserToolStripMenuItem.Click += new System.EventHandler(this.deleteUserToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(178, 6);
             // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // phonToolStripMenuItem
             // 
             this.phonToolStripMenuItem.Image = global::IMS.Properties.Resources.Phone;
             this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
-            this.phonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.phonToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.phonToolStripMenuItem.Text = "Phone Call";
             // 
             // cbIsActive
@@ -221,6 +221,9 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.dgvUsers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListUsers";
             this.Text = "frmListUsers";
             this.Load += new System.EventHandler(this.frmListUsers_Load);

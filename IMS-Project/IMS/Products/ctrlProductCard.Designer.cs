@@ -52,7 +52,7 @@
             // 
             this.lblDescription.AutoSize = true;
             this.lblDescription.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescription.Location = new System.Drawing.Point(418, 191);
+            this.lblDescription.Location = new System.Drawing.Point(148, 232);
             this.lblDescription.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(68, 25);
@@ -162,7 +162,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(372, 146);
+            this.label19.Location = new System.Drawing.Point(13, 232);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(127, 25);
@@ -257,7 +257,7 @@
             this.Controls.Add(this.label24);
             this.Controls.Add(this.label26);
             this.Name = "ctrlProductCard";
-            this.Size = new System.Drawing.Size(704, 283);
+            this.Size = new System.Drawing.Size(697, 283);
             this.Load += new System.EventHandler(this.ctrlProductCard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pbGendor)).EndInit();
             this.ResumeLayout(false);

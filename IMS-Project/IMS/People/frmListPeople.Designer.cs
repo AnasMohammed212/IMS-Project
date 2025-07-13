@@ -114,13 +114,13 @@
             this.sendEmailToolStripMenuItem,
             this.phonToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(215, 194);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(196, 166);
             // 
             // showPersonInfoToolStripMenuItem
             // 
             this.showPersonInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
             this.showPersonInfoToolStripMenuItem.Name = "showPersonInfoToolStripMenuItem";
-            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showPersonInfoToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.showPersonInfoToolStripMenuItem.Text = "Show Person Info";
             this.showPersonInfoToolStripMenuItem.Click += new System.EventHandler(this.showPersonInfoToolStripMenuItem_Click);
             // 
@@ -128,7 +128,7 @@
             // 
             this.addPersonToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
             this.addPersonToolStripMenuItem.Name = "addPersonToolStripMenuItem";
-            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.addPersonToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.addPersonToolStripMenuItem.Text = "Add Person";
             this.addPersonToolStripMenuItem.Click += new System.EventHandler(this.addPersonToolStripMenuItem_Click);
             // 
@@ -136,7 +136,7 @@
             // 
             this.editPersonToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
             this.editPersonToolStripMenuItem.Name = "editPersonToolStripMenuItem";
-            this.editPersonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editPersonToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.editPersonToolStripMenuItem.Text = "Edit Person";
             this.editPersonToolStripMenuItem.Click += new System.EventHandler(this.editPersonToolStripMenuItem_Click);
             // 
@@ -144,27 +144,27 @@
             // 
             this.deletePersonToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
             this.deletePersonToolStripMenuItem.Name = "deletePersonToolStripMenuItem";
-            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deletePersonToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.deletePersonToolStripMenuItem.Text = "Delete Person";
             this.deletePersonToolStripMenuItem.Click += new System.EventHandler(this.deletePersonToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(211, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(192, 6);
             // 
             // sendEmailToolStripMenuItem
             // 
             this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
             this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.sendEmailToolStripMenuItem.Text = "Send Email";
             // 
             // phonToolStripMenuItem
             // 
             this.phonToolStripMenuItem.Image = global::IMS.Properties.Resources.Phone;
             this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
-            this.phonToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.phonToolStripMenuItem.Size = new System.Drawing.Size(195, 26);
             this.phonToolStripMenuItem.Text = "Phone Call";
             // 
             // lblRecordCount
@@ -199,6 +199,9 @@
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvPeople);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListPeople";
             this.Text = "frmListPeople";
             this.Load += new System.EventHandler(this.frmListPeople_Load);

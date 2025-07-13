@@ -136,20 +136,21 @@
             this.editProductToolStripMenuItem,
             this.deleteProductToolStripMenuItem});
             this.cmsProduct.Name = "contextMenuStrip1";
-            this.cmsProduct.Size = new System.Drawing.Size(215, 136);
+            this.cmsProduct.Size = new System.Drawing.Size(204, 108);
             // 
             // showProductInfoToolStripMenuItem
             // 
             this.showProductInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
             this.showProductInfoToolStripMenuItem.Name = "showProductInfoToolStripMenuItem";
-            this.showProductInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.showProductInfoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.showProductInfoToolStripMenuItem.Text = "Show Product Info";
+            this.showProductInfoToolStripMenuItem.Click += new System.EventHandler(this.showProductInfoToolStripMenuItem_Click);
             // 
             // addProductToolStripMenuItem
             // 
             this.addProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Products;
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.addProductToolStripMenuItem.Text = "AddProduct";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
@@ -157,7 +158,7 @@
             // 
             this.editProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
             this.editProductToolStripMenuItem.Name = "editProductToolStripMenuItem";
-            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.editProductToolStripMenuItem.Text = "Edit Product";
             this.editProductToolStripMenuItem.Click += new System.EventHandler(this.editProductToolStripMenuItem_Click);
             // 
@@ -165,7 +166,7 @@
             // 
             this.deleteProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
             this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
             this.deleteProductToolStripMenuItem.Text = "Delete Product";
             this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
             // 
@@ -182,6 +183,9 @@
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvProducts);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListProducts";
             this.Text = "frmListProducts";
             this.Load += new System.EventHandler(this.frmListProducts_Load);

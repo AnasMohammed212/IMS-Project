@@ -57,6 +57,9 @@
             this.ClientSize = new System.Drawing.Size(904, 532);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlUserCard1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmUserInfo";
             this.Text = "frmUserInfo";
             this.Load += new System.EventHandler(this.frmUserInfo_Load);

@@ -185,6 +185,9 @@
             this.Controls.Add(this.txtNewPassword);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtCurrentPassword);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmChangePassword";
             this.Text = "frmChangePassword";
             this.Load += new System.EventHandler(this.frmChangePassword_Load_1);
