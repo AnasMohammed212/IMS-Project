@@ -46,10 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmListPurchaseOrders.cs">
+    <Compile Include="PurchaseOrders\frmAddUpdatePurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListPurchaseOrders.Designer.cs">
+    <Compile Include="PurchaseOrders\frmAddUpdatePurchaseOrder.Designer.cs">
+      <DependentUpon>frmAddUpdatePurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PurchaseOrders\frmListPurchaseOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrders\frmListPurchaseOrders.Designer.cs">
       <DependentUpon>frmListPurchaseOrders.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
@@ -159,7 +165,10 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmListPurchaseOrders.resx">
+    <EmbeddedResource Include="PurchaseOrders\frmAddUpdatePurchaseOrder.resx">
+      <DependentUpon>frmAddUpdatePurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PurchaseOrders\frmListPurchaseOrders.resx">
       <DependentUpon>frmListPurchaseOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">

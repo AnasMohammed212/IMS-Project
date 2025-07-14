@@ -57,6 +57,7 @@
             this.btnShowAddUpdateProduct.Size = new System.Drawing.Size(85, 80);
             this.btnShowAddUpdateProduct.TabIndex = 19;
             this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
+            this.btnShowAddUpdateProduct.Click += new System.EventHandler(this.btnShowAddUpdateProduct_Click);
             // 
             // lblFilterBy
             // 

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMS.PurchaseOrders;
 using IMS_Business;
 
 namespace IMS
@@ -84,7 +85,7 @@ namespace IMS
                     break;
             }
 
-            if (string.IsNullOrWhiteSpace(txtFilterValue.Text) || string.IsNullOrWhiteSpace(filterColumn))
+            if (txtFilterValue.Text.Trim() == "" || filterColumn == "None")
             {
                 _dtAllPurchaseOrders.DefaultView.RowFilter = "";
                 lblRecordsCount.Text = dgvPurchaseOrders.Rows.Count.ToString();
@@ -93,10 +94,7 @@ namespace IMS
 
             if (filterColumn == "PurchaseOrderID")
             {
-                if (int.TryParse(txtFilterValue.Text.Trim(), out int val))
-                    _dtAllPurchaseOrders.DefaultView.RowFilter = $"{filterColumn} = {val}";
-                else
-                    _dtAllPurchaseOrders.DefaultView.RowFilter = "1 = 0";
+                _dtAllPurchaseOrders.DefaultView.RowFilter = string.Format("[{0}] = {1}", filterColumn, txtFilterValue.Text.Trim());
             }
             else
             {
@@ -119,6 +117,12 @@ namespace IMS
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnShowAddUpdateProduct_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePurchaseOrder frm=new frmAddUpdatePurchaseOrder();
+            frm.ShowDialog();
         }
     }
 }
