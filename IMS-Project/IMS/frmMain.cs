@@ -73,5 +73,11 @@ namespace IMS
             frmListProducts frm=new frmListProducts();
             frm.Show();
         }
+
+        private void purchaseOrdersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListPurchaseOrders frm=new frmListPurchaseOrders();
+            frm.ShowDialog();
+        }
     }
 }
