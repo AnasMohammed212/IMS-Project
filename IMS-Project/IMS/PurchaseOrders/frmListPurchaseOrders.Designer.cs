@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             this.lblFilterBy = new System.Windows.Forms.Label();
@@ -35,7 +36,13 @@
             this.dgvPurchaseOrders = new System.Windows.Forms.DataGridView();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.cmsPurchaseOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showPurchaseOrderInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseOrders)).BeginInit();
+            this.cmsPurchaseOrder.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFilterValue
@@ -90,6 +97,7 @@
             // 
             this.dgvPurchaseOrders.AllowUserToAddRows = false;
             this.dgvPurchaseOrders.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvPurchaseOrders.ContextMenuStrip = this.cmsPurchaseOrder;
             this.dgvPurchaseOrders.Location = new System.Drawing.Point(31, 126);
             this.dgvPurchaseOrders.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvPurchaseOrders.Name = "dgvPurchaseOrders";
@@ -120,6 +128,46 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // cmsPurchaseOrder
+            // 
+            this.cmsPurchaseOrder.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsPurchaseOrder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showPurchaseOrderInfoToolStripMenuItem,
+            this.addProductToolStripMenuItem,
+            this.editProductToolStripMenuItem,
+            this.deleteProductToolStripMenuItem});
+            this.cmsPurchaseOrder.Name = "contextMenuStrip1";
+            this.cmsPurchaseOrder.Size = new System.Drawing.Size(253, 108);
+            // 
+            // showPurchaseOrderInfoToolStripMenuItem
+            // 
+            this.showPurchaseOrderInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
+            this.showPurchaseOrderInfoToolStripMenuItem.Name = "showPurchaseOrderInfoToolStripMenuItem";
+            this.showPurchaseOrderInfoToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.showPurchaseOrderInfoToolStripMenuItem.Text = "Show Purchase Order Info";
+            this.showPurchaseOrderInfoToolStripMenuItem.Click += new System.EventHandler(this.showPurchaseOrderInfoToolStripMenuItem_Click);
+            // 
+            // addProductToolStripMenuItem
+            // 
+            this.addProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Products;
+            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.addProductToolStripMenuItem.Text = "Add Purchase Order";
+            // 
+            // editProductToolStripMenuItem
+            // 
+            this.editProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
+            this.editProductToolStripMenuItem.Name = "editProductToolStripMenuItem";
+            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.editProductToolStripMenuItem.Text = "Edit Purchase Order";
+            // 
+            // deleteProductToolStripMenuItem
+            // 
+            this.deleteProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
+            this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
+            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.deleteProductToolStripMenuItem.Text = "Delete Purchase Order";
+            // 
             // frmListPurchaseOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -136,6 +184,7 @@
             this.Text = "frmListPurchaseOrders";
             this.Load += new System.EventHandler(this.frmListPurchaseOrders_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseOrders)).EndInit();
+            this.cmsPurchaseOrder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +199,10 @@
         private System.Windows.Forms.DataGridView dgvPurchaseOrders;
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ContextMenuStrip cmsPurchaseOrder;
+        private System.Windows.Forms.ToolStripMenuItem showPurchaseOrderInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
     }
 }

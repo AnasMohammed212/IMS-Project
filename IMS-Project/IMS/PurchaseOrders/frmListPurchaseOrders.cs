@@ -124,5 +124,11 @@ namespace IMS
             frmAddUpdatePurchaseOrder frm=new frmAddUpdatePurchaseOrder();
             frm.ShowDialog();
         }
+
+        private void showPurchaseOrderInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowPurchaseOrderInfo frm = new frmShowPurchaseOrderInfo((int)dgvPurchaseOrders.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

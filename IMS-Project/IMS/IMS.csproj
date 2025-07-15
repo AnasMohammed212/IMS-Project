@@ -141,6 +141,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrders\frmShowPurchaseOrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrders\frmShowPurchaseOrderInfo.Designer.cs">
+      <DependentUpon>frmShowPurchaseOrderInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\ctrlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -226,6 +232,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="PurchaseOrders\frmShowPurchaseOrderInfo.resx">
+      <DependentUpon>frmShowPurchaseOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Users\ctrlUserCard.resx">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -343,6 +352,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Application.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ID.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Status.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Date1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
