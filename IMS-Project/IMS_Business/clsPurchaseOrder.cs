@@ -15,6 +15,7 @@ namespace IMS_Business
 
         public int PurchaseOrderID { get; set; }
         public int SupplierID { get; set; }
+        public clsSupplier SupplierInfo { get; set; }
         public DateTime OrderDate { get; set; }
         public int CreatedByUserID { get; set; }
         clsUser UserInfo { get; set; }
@@ -37,9 +38,10 @@ namespace IMS_Business
         {
             this.PurchaseOrderID = purchaseOrderID;
             this.SupplierID = supplierID;
+            this.SupplierInfo = clsSupplier.Find(supplierID);
             this.OrderDate = orderDate;
             this.CreatedByUserID = CreatedByUserID;
-            this.UserInfo = clsUser.FindByPersonID(CreatedByUserID);
+            this.UserInfo = clsUser.FindByUserID(CreatedByUserID);
             this.Status = status;
             this.Notes = Notes;
             Mode = enMode.Update;

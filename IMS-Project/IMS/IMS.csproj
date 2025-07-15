@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PurchaseOrders\ctrlPurchaseOrderCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="PurchaseOrders\ctrlPurchaseOrderCard.Designer.cs">
+      <DependentUpon>ctrlPurchaseOrderCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseOrders\frmAddUpdatePurchaseOrder.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -165,6 +171,9 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="PurchaseOrders\ctrlPurchaseOrderCard.resx">
+      <DependentUpon>ctrlPurchaseOrderCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\frmAddUpdatePurchaseOrder.resx">
       <DependentUpon>frmAddUpdatePurchaseOrder.cs</DependentUpon>
     </EmbeddedResource>
