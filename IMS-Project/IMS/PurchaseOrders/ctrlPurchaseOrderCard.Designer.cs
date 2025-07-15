@@ -54,7 +54,7 @@
             // 
             this.lblPurchaseOrderID.AutoSize = true;
             this.lblPurchaseOrderID.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPurchaseOrderID.Location = new System.Drawing.Point(210, 42);
+            this.lblPurchaseOrderID.Location = new System.Drawing.Point(221, 42);
             this.lblPurchaseOrderID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPurchaseOrderID.Name = "lblPurchaseOrderID";
             this.lblPurchaseOrderID.Size = new System.Drawing.Size(68, 25);
@@ -178,8 +178,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::IMS.Properties.Resources.Person;
-            this.pictureBox1.Location = new System.Drawing.Point(172, 42);
+            this.pictureBox1.Image = global::IMS.Properties.Resources.Card;
+            this.pictureBox1.Location = new System.Drawing.Point(183, 42);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(31, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

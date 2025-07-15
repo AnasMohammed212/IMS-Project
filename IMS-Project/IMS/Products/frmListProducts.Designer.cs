@@ -40,7 +40,7 @@
             this.showProductInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProducts)).BeginInit();
             this.cmsProduct.SuspendLayout();
             this.SuspendLayout();
@@ -134,15 +134,15 @@
             this.showProductInfoToolStripMenuItem,
             this.addProductToolStripMenuItem,
             this.editProductToolStripMenuItem,
-            this.deleteProductToolStripMenuItem});
+            this.deletePurchaseOrderToolStripMenuItem});
             this.cmsProduct.Name = "contextMenuStrip1";
-            this.cmsProduct.Size = new System.Drawing.Size(204, 108);
+            this.cmsProduct.Size = new System.Drawing.Size(215, 136);
             // 
             // showProductInfoToolStripMenuItem
             // 
             this.showProductInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
             this.showProductInfoToolStripMenuItem.Name = "showProductInfoToolStripMenuItem";
-            this.showProductInfoToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.showProductInfoToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.showProductInfoToolStripMenuItem.Text = "Show Product Info";
             this.showProductInfoToolStripMenuItem.Click += new System.EventHandler(this.showProductInfoToolStripMenuItem_Click);
             // 
@@ -150,7 +150,7 @@
             // 
             this.addProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Products;
             this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.addProductToolStripMenuItem.Text = "AddProduct";
             this.addProductToolStripMenuItem.Click += new System.EventHandler(this.addProductToolStripMenuItem_Click);
             // 
@@ -158,17 +158,17 @@
             // 
             this.editProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
             this.editProductToolStripMenuItem.Name = "editProductToolStripMenuItem";
-            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
+            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.editProductToolStripMenuItem.Text = "Edit Product";
             this.editProductToolStripMenuItem.Click += new System.EventHandler(this.editProductToolStripMenuItem_Click);
             // 
-            // deleteProductToolStripMenuItem
+            // deletePurchaseOrderToolStripMenuItem
             // 
-            this.deleteProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
-            this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(203, 26);
-            this.deleteProductToolStripMenuItem.Text = "Delete Product";
-            this.deleteProductToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
+            this.deletePurchaseOrderToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
+            this.deletePurchaseOrderToolStripMenuItem.Name = "deletePurchaseOrderToolStripMenuItem";
+            this.deletePurchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.deletePurchaseOrderToolStripMenuItem.Text = "Delete Product";
+            this.deletePurchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.deleteProductToolStripMenuItem_Click);
             // 
             // frmListProducts
             // 
@@ -209,6 +209,6 @@
         private System.Windows.Forms.ToolStripMenuItem showProductInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editProductToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletePurchaseOrderToolStripMenuItem;
     }
 }

@@ -130,5 +130,31 @@ namespace IMS
             frmShowPurchaseOrderInfo frm = new frmShowPurchaseOrderInfo((int)dgvPurchaseOrders.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
+
+        private async void deletePurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PurchaseOrderID = (int)dgvPurchaseOrders.CurrentRow.Cells[0].Value;
+            if (await clsPurchaseOrder.DeletePurchaseOrder(PurchaseOrderID))
+            {
+                MessageBox.Show("Purchase Order has been deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                frmListPurchaseOrders_Load(null, null);
+            }
+
+            else
+                MessageBox.Show("Purchase Order is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            await _LoadDataAsync();
+        }
+
+        private void addPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePurchaseOrder frm = new frmAddUpdatePurchaseOrder();
+            frm.ShowDialog();
+        }
+
+        private void editPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdatePurchaseOrder frm = new frmAddUpdatePurchaseOrder((int)dgvPurchaseOrders.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
     }
 }

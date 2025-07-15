@@ -34,13 +34,13 @@
             this.lblFilterBy = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.dgvPurchaseOrders = new System.Windows.Forms.DataGridView();
-            this.lblRecordsCount = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.cmsPurchaseOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showPurchaseOrderInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteProductToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addPurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editPurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deletePurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseOrders)).BeginInit();
             this.cmsPurchaseOrder.SuspendLayout();
             this.SuspendLayout();
@@ -107,6 +107,49 @@
             this.dgvPurchaseOrders.Size = new System.Drawing.Size(1200, 414);
             this.dgvPurchaseOrders.TabIndex = 16;
             // 
+            // cmsPurchaseOrder
+            // 
+            this.cmsPurchaseOrder.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsPurchaseOrder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showPurchaseOrderInfoToolStripMenuItem,
+            this.addPurchaseOrderToolStripMenuItem,
+            this.editPurchaseOrderToolStripMenuItem,
+            this.deletePurchaseOrderToolStripMenuItem});
+            this.cmsPurchaseOrder.Name = "contextMenuStrip1";
+            this.cmsPurchaseOrder.Size = new System.Drawing.Size(253, 136);
+            // 
+            // showPurchaseOrderInfoToolStripMenuItem
+            // 
+            this.showPurchaseOrderInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
+            this.showPurchaseOrderInfoToolStripMenuItem.Name = "showPurchaseOrderInfoToolStripMenuItem";
+            this.showPurchaseOrderInfoToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.showPurchaseOrderInfoToolStripMenuItem.Text = "Show Purchase Order Info";
+            this.showPurchaseOrderInfoToolStripMenuItem.Click += new System.EventHandler(this.showPurchaseOrderInfoToolStripMenuItem_Click);
+            // 
+            // addPurchaseOrderToolStripMenuItem
+            // 
+            this.addPurchaseOrderToolStripMenuItem.Image = global::IMS.Properties.Resources.Products;
+            this.addPurchaseOrderToolStripMenuItem.Name = "addPurchaseOrderToolStripMenuItem";
+            this.addPurchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.addPurchaseOrderToolStripMenuItem.Text = "Add Purchase Order";
+            this.addPurchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.addPurchaseOrderToolStripMenuItem_Click);
+            // 
+            // editPurchaseOrderToolStripMenuItem
+            // 
+            this.editPurchaseOrderToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
+            this.editPurchaseOrderToolStripMenuItem.Name = "editPurchaseOrderToolStripMenuItem";
+            this.editPurchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.editPurchaseOrderToolStripMenuItem.Text = "Edit Purchase Order";
+            this.editPurchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.editPurchaseOrderToolStripMenuItem_Click);
+            // 
+            // deletePurchaseOrderToolStripMenuItem
+            // 
+            this.deletePurchaseOrderToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
+            this.deletePurchaseOrderToolStripMenuItem.Name = "deletePurchaseOrderToolStripMenuItem";
+            this.deletePurchaseOrderToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.deletePurchaseOrderToolStripMenuItem.Text = "Delete Purchase Order";
+            this.deletePurchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.deletePurchaseOrderToolStripMenuItem_Click);
+            // 
             // lblRecordsCount
             // 
             this.lblRecordsCount.AutoSize = true;
@@ -127,46 +170,6 @@
             this.btnClose.Text = "Close";
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // cmsPurchaseOrder
-            // 
-            this.cmsPurchaseOrder.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsPurchaseOrder.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.showPurchaseOrderInfoToolStripMenuItem,
-            this.addProductToolStripMenuItem,
-            this.editProductToolStripMenuItem,
-            this.deleteProductToolStripMenuItem});
-            this.cmsPurchaseOrder.Name = "contextMenuStrip1";
-            this.cmsPurchaseOrder.Size = new System.Drawing.Size(253, 108);
-            // 
-            // showPurchaseOrderInfoToolStripMenuItem
-            // 
-            this.showPurchaseOrderInfoToolStripMenuItem.Image = global::IMS.Properties.Resources.PersonInfo;
-            this.showPurchaseOrderInfoToolStripMenuItem.Name = "showPurchaseOrderInfoToolStripMenuItem";
-            this.showPurchaseOrderInfoToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.showPurchaseOrderInfoToolStripMenuItem.Text = "Show Purchase Order Info";
-            this.showPurchaseOrderInfoToolStripMenuItem.Click += new System.EventHandler(this.showPurchaseOrderInfoToolStripMenuItem_Click);
-            // 
-            // addProductToolStripMenuItem
-            // 
-            this.addProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Products;
-            this.addProductToolStripMenuItem.Name = "addProductToolStripMenuItem";
-            this.addProductToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.addProductToolStripMenuItem.Text = "Add Purchase Order";
-            // 
-            // editProductToolStripMenuItem
-            // 
-            this.editProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
-            this.editProductToolStripMenuItem.Name = "editProductToolStripMenuItem";
-            this.editProductToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.editProductToolStripMenuItem.Text = "Edit Purchase Order";
-            // 
-            // deleteProductToolStripMenuItem
-            // 
-            this.deleteProductToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
-            this.deleteProductToolStripMenuItem.Name = "deleteProductToolStripMenuItem";
-            this.deleteProductToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
-            this.deleteProductToolStripMenuItem.Text = "Delete Purchase Order";
             // 
             // frmListPurchaseOrders
             // 
@@ -201,8 +204,8 @@
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.ContextMenuStrip cmsPurchaseOrder;
         private System.Windows.Forms.ToolStripMenuItem showPurchaseOrderInfoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem addProductToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editProductToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteProductToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addPurchaseOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editPurchaseOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deletePurchaseOrderToolStripMenuItem;
     }
 }
