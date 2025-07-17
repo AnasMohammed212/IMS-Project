@@ -222,6 +222,44 @@ namespace IMS_DataAccess
             return rowsAffected > 0;
         }
 
+        public static bool GetProductInfoByName(string productName, ref int productID, ref string description, ref int categoryID,
+                                        ref int supplierID, ref decimal purchasePrice, ref decimal salePrice, ref int unitID)
+        {
+            bool isFound = false;
 
+            using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+            {
+                try
+                {
+                    connection.Open();
+
+                    SqlCommand command = new SqlCommand("SP_GetProductInfoByName", connection);
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@ProductName", productName);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        isFound = true;
+                        productID = (int)reader["ProductID"];
+                        description = reader["Description"].ToString();
+                        categoryID = (int)reader["CategoryID"];
+                        supplierID = (int)reader["SupplierID"];
+                        purchasePrice = (decimal)reader["PurchasePrice"];
+                        salePrice = (decimal)reader["SalePrice"];
+                        unitID = (int)reader["UnitID"];
+                    }
+
+                    reader.Close();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+
+            return isFound;
+        }
     }
 }

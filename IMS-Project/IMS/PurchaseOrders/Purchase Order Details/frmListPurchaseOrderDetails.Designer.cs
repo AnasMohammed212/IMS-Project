@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
             this.btnShowAddDetail = new System.Windows.Forms.Button();
             this.lblFilterBy = new System.Windows.Forms.Label();
@@ -35,7 +36,12 @@
             this.dgvDetails = new System.Windows.Forms.DataGridView();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.cmsDetails = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.addDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteDetailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).BeginInit();
+            this.cmsDetails.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtFilterValue
@@ -51,12 +57,13 @@
             // 
             this.btnShowAddDetail.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnShowAddDetail.Image = global::IMS.Properties.Resources.Details;
-            this.btnShowAddDetail.Location = new System.Drawing.Point(1139, 24);
+            this.btnShowAddDetail.Location = new System.Drawing.Point(685, 21);
             this.btnShowAddDetail.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShowAddDetail.Name = "btnShowAddDetail";
             this.btnShowAddDetail.Size = new System.Drawing.Size(85, 80);
             this.btnShowAddDetail.TabIndex = 24;
             this.btnShowAddDetail.UseVisualStyleBackColor = true;
+            this.btnShowAddDetail.Click += new System.EventHandler(this.btnShowAddDetail_Click);
             // 
             // lblFilterBy
             // 
@@ -87,13 +94,14 @@
             // 
             this.dgvDetails.AllowUserToAddRows = false;
             this.dgvDetails.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetails.ContextMenuStrip = this.cmsDetails;
             this.dgvDetails.Location = new System.Drawing.Point(24, 118);
             this.dgvDetails.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvDetails.Name = "dgvDetails";
             this.dgvDetails.ReadOnly = true;
             this.dgvDetails.RowHeadersWidth = 51;
             this.dgvDetails.RowTemplate.Height = 24;
-            this.dgvDetails.Size = new System.Drawing.Size(1200, 414);
+            this.dgvDetails.Size = new System.Drawing.Size(724, 414);
             this.dgvDetails.TabIndex = 21;
             // 
             // lblRecordsCount
@@ -109,7 +117,7 @@
             // btnClose
             // 
             this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1093, 551);
+            this.btnClose.Location = new System.Drawing.Point(617, 551);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(131, 44);
             this.btnClose.TabIndex = 26;
@@ -117,11 +125,45 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // cmsDetails
+            // 
+            this.cmsDetails.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsDetails.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addDetailToolStripMenuItem,
+            this.editDetailToolStripMenuItem,
+            this.deleteDetailToolStripMenuItem});
+            this.cmsDetails.Name = "contextMenuStrip1";
+            this.cmsDetails.Size = new System.Drawing.Size(231, 82);
+            // 
+            // addDetailToolStripMenuItem
+            // 
+            this.addDetailToolStripMenuItem.Image = global::IMS.Properties.Resources.Products;
+            this.addDetailToolStripMenuItem.Name = "addDetailToolStripMenuItem";
+            this.addDetailToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.addDetailToolStripMenuItem.Text = "Add Purchase Order";
+            this.addDetailToolStripMenuItem.Click += new System.EventHandler(this.addDetailToolStripMenuItem_Click);
+            // 
+            // editDetailToolStripMenuItem
+            // 
+            this.editDetailToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
+            this.editDetailToolStripMenuItem.Name = "editDetailToolStripMenuItem";
+            this.editDetailToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.editDetailToolStripMenuItem.Text = "Edit Purchase Order";
+            this.editDetailToolStripMenuItem.Click += new System.EventHandler(this.editDetailToolStripMenuItem_Click);
+            // 
+            // deleteDetailToolStripMenuItem
+            // 
+            this.deleteDetailToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
+            this.deleteDetailToolStripMenuItem.Name = "deleteDetailToolStripMenuItem";
+            this.deleteDetailToolStripMenuItem.Size = new System.Drawing.Size(230, 26);
+            this.deleteDetailToolStripMenuItem.Text = "Delete Purchase Order";
+            this.deleteDetailToolStripMenuItem.Click += new System.EventHandler(this.deleteDetailToolStripMenuItem_Click);
+            // 
             // frmListPurchaseOrderDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1250, 619);
+            this.ClientSize = new System.Drawing.Size(779, 619);
             this.Controls.Add(this.lblRecordsCount);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.txtFilterValue);
@@ -136,6 +178,7 @@
             this.Text = "frmListPurchaseOrderDetails";
             this.Load += new System.EventHandler(this.frmListPurchaseOrderDetails_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetails)).EndInit();
+            this.cmsDetails.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +193,9 @@
         private System.Windows.Forms.DataGridView dgvDetails;
         private System.Windows.Forms.Label lblRecordsCount;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.ContextMenuStrip cmsDetails;
+        private System.Windows.Forms.ToolStripMenuItem addDetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editDetailToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteDetailToolStripMenuItem;
     }
 }

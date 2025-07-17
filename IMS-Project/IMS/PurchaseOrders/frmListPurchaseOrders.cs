@@ -135,6 +135,10 @@ namespace IMS
         private async void deletePurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int PurchaseOrderID = (int)dgvPurchaseOrders.CurrentRow.Cells[0].Value;
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete Purchase Order ID = {PurchaseOrderID}?","Confirm Delete",MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+                return;
             if (await clsPurchaseOrder.DeletePurchaseOrder(PurchaseOrderID))
             {
                 MessageBox.Show("Purchase Order has been deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);

@@ -65,7 +65,23 @@ namespace IMS_Business
             else
                 return null;
         }
+        public static clsProduct Find(string productName)
+        {
+            int productID = -1, categoryID = -1, supplierID = -1, unitID = -1;
+            string description = "";
+            decimal purchasePrice = 0, salePrice = 0;
 
+            bool isFound = clsProductData.GetProductInfoByName(productName, ref productID, ref description,
+                ref categoryID, ref supplierID, ref purchasePrice, ref salePrice, ref unitID);
+
+            if (isFound)
+            {
+                return new clsProduct(productID, productName, description, categoryID,
+                    supplierID, purchasePrice, salePrice, unitID);
+            }
+
+            return null;
+        }
         private async Task<bool> _AddNewProduct()
         {
             this.ProductID = await clsProductData.AddNewProduct(this.ProductName, this.Description, this.CategoryID,

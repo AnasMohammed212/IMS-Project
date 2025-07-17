@@ -42,7 +42,8 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
                 dgvDetails.Columns[3].Width = 150;
 
                 dgvDetails.Columns[4].HeaderText = "Unit Price";
-                dgvDetails.Columns[4].Visible = false;
+                dgvDetails.Columns[4].Width = 170;
+                
 
             }
 
@@ -103,6 +104,54 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async  void btnShowAddDetail_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateDetail frm = new frmAddUpdateDetail(_PurchaseOrderID);
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void editDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateDetail frm = new frmAddUpdateDetail(_PurchaseOrderID, (int)dgvDetails.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void addDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateDetail frm = new frmAddUpdateDetail(_PurchaseOrderID);
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void deleteDetailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dgvDetails.CurrentRow == null)
+            {
+                MessageBox.Show("Please select a detail to delete.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int detailID = (int)dgvDetails.CurrentRow.Cells["DetailID"].Value;
+
+            var result = MessageBox.Show($"Are you sure you want to delete detail ID = {detailID}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result != DialogResult.Yes)
+                return;
+
+            bool isDeleted = await clsPurchaseOrderDetail.DeletePurchaseOrderDetail(detailID);
+
+            if (isDeleted)
+            {
+                MessageBox.Show("Detail deleted successfully.", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await _LoadDataAsync();
+            }
+            else
+            {
+                MessageBox.Show("Cannot delete this detail. It may be linked to other data.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
