@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmInventoryTransactions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventoryTransactions.Designer.cs">
+      <DependentUpon>frmInventoryTransactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseOrders\ctrlPurchaseOrderCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="frmInventoryTransactions.resx">
+      <DependentUpon>frmInventoryTransactions.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\ctrlPurchaseOrderCard.resx">
       <DependentUpon>ctrlPurchaseOrderCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +394,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Details.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Transactions.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,6 +38,7 @@
             this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventoryTranscationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,10 +50,11 @@
             this.peopleToolStripMenuItem1,
             this.usersToolStripMenuItem1,
             this.productsToolStripMenuItem,
+            this.inventoryTranscationsToolStripMenuItem,
             this.accountSettingsToolStripMenuItem1});
             this.menuStrip2.Location = new System.Drawing.Point(0, 0);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(800, 58);
+            this.menuStrip2.Size = new System.Drawing.Size(999, 58);
             this.menuStrip2.TabIndex = 2;
             this.menuStrip2.Text = "menuStrip2";
             // 
@@ -141,11 +143,20 @@
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
+            // inventoryTranscationsToolStripMenuItem
+            // 
+            this.inventoryTranscationsToolStripMenuItem.Image = global::IMS.Properties.Resources.Transactions;
+            this.inventoryTranscationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.inventoryTranscationsToolStripMenuItem.Name = "inventoryTranscationsToolStripMenuItem";
+            this.inventoryTranscationsToolStripMenuItem.Size = new System.Drawing.Size(219, 54);
+            this.inventoryTranscationsToolStripMenuItem.Text = "Inventory Transcations";
+            this.inventoryTranscationsToolStripMenuItem.Click += new System.EventHandler(this.inventoryTranscationsToolStripMenuItem_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(999, 450);
             this.Controls.Add(this.menuStrip2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -173,6 +184,7 @@
         private System.Windows.Forms.ToolStripMenuItem productsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem applicationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseOrdersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem inventoryTranscationsToolStripMenuItem;
     }
 }
 

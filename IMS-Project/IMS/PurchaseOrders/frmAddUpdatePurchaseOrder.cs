@@ -53,6 +53,7 @@ namespace IMS.PurchaseOrders
                 lblTitle.Text = "Add New Purchase Order";
                 _PurchaseOrder = new clsPurchaseOrder();
                 lblPurchaseOrderID.Text = "[????]";
+                cbStatus.Enabled = false;
             }
             else
             {

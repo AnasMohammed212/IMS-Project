@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMS.Global_Classes;
 using IMS_Business;
 
 namespace IMS.PurchaseOrders.Purchase_Order_Details
@@ -133,11 +134,29 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
                 lblTitle.Text = "Update Detail";
                 MessageBox.Show("Saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataBack?.Invoke(this, _Detail.DetailID);
+                clsInventoryTransaction inventoryTransaction = new clsInventoryTransaction
+                {
+                    ProductID = _Detail.ProductID,
+                    Quantity = _Detail.Quantity,
+                    TransactionType = "IN",
+                    TransactionDate = DateTime.Now,
+                    PerformedByUserID = clsGlobal.CurrentUser.UserID, 
+                };
+                bool transactionSaved = await inventoryTransaction.Save();
+                if (!transactionSaved)
+                {
+                    MessageBox.Show("Failed to save inventory transaction.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             else
             {
                 MessageBox.Show("Failed to save detail.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
