@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMS.PurchaseOrders;
+using IMS.PurchaseOrders.Purchase_Order_Details;
 using IMS_Business;
 
 namespace IMS
@@ -154,6 +155,12 @@ namespace IMS
         private void editPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdatePurchaseOrder frm = new frmAddUpdatePurchaseOrder((int)dgvPurchaseOrders.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private void addDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListPurchaseOrderDetails frm = new frmListPurchaseOrderDetails((int)dgvPurchaseOrders.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
         }
     }

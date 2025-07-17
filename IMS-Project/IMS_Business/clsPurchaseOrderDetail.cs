@@ -78,6 +78,10 @@ namespace IMS_Business
             return await clsPurchaseOrderDetailsData.IsDetailExist(detailID);
         }
 
+        public static async Task<DataTable> GetAllOrderDetailsByPurchaseOrderID(int purchaseOrderID)
+        {
+            return await clsPurchaseOrderDetailsData.GetDetailsByPurchaseOrderID(purchaseOrderID);
+        }
         public static async Task<bool> DeletePurchaseOrderDetail(int detailID)
         {
             return await clsPurchaseOrderDetailsData.DeletePurchaseOrderDetail(detailID);

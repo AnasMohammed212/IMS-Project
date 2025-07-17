@@ -44,6 +44,35 @@ namespace IMS_DataAccess
 
             return isFound;
         }
+
+        public static async Task<DataTable> GetDetailsByPurchaseOrderID(int PurchaseOrderID)
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    await connection.OpenAsync();
+                    using (SqlCommand command = new SqlCommand("SP_GetDetailsByPurchaseOrderID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@PurchaseOrderID", PurchaseOrderID);
+
+                        SqlDataReader reader = await command.ExecuteReaderAsync();
+                        if (reader.HasRows)
+                            dt.Load(reader);
+
+                        reader.Close();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error fetching details: " + ex.Message);
+            }
+
+            return dt;
+        }
         public static async Task<int> AddPurchaseOrderDetail(int PurchaseOrderID, int ProductID, decimal Quantity, decimal UnitPrice)
         {
             int NewID = -1;

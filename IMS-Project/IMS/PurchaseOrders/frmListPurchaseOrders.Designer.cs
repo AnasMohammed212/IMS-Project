@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
-            this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             this.lblFilterBy = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.dgvPurchaseOrders = new System.Windows.Forms.DataGridView();
@@ -39,8 +38,10 @@
             this.addPurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editPurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deletePurchaseOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPurchaseOrders)).BeginInit();
             this.cmsPurchaseOrder.SuspendLayout();
             this.SuspendLayout();
@@ -53,18 +54,6 @@
             this.txtFilterValue.Size = new System.Drawing.Size(171, 34);
             this.txtFilterValue.TabIndex = 20;
             this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
-            // 
-            // btnShowAddUpdateProduct
-            // 
-            this.btnShowAddUpdateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAddUpdateProduct.Image = global::IMS.Properties.Resources.Products;
-            this.btnShowAddUpdateProduct.Location = new System.Drawing.Point(1146, 32);
-            this.btnShowAddUpdateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowAddUpdateProduct.Name = "btnShowAddUpdateProduct";
-            this.btnShowAddUpdateProduct.Size = new System.Drawing.Size(85, 80);
-            this.btnShowAddUpdateProduct.TabIndex = 19;
-            this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
-            this.btnShowAddUpdateProduct.Click += new System.EventHandler(this.btnShowAddUpdateProduct_Click);
             // 
             // lblFilterBy
             // 
@@ -114,9 +103,10 @@
             this.showPurchaseOrderInfoToolStripMenuItem,
             this.addPurchaseOrderToolStripMenuItem,
             this.editPurchaseOrderToolStripMenuItem,
-            this.deletePurchaseOrderToolStripMenuItem});
+            this.deletePurchaseOrderToolStripMenuItem,
+            this.addDetailsToolStripMenuItem});
             this.cmsPurchaseOrder.Name = "contextMenuStrip1";
-            this.cmsPurchaseOrder.Size = new System.Drawing.Size(253, 136);
+            this.cmsPurchaseOrder.Size = new System.Drawing.Size(253, 134);
             // 
             // showPurchaseOrderInfoToolStripMenuItem
             // 
@@ -150,6 +140,14 @@
             this.deletePurchaseOrderToolStripMenuItem.Text = "Delete Purchase Order";
             this.deletePurchaseOrderToolStripMenuItem.Click += new System.EventHandler(this.deletePurchaseOrderToolStripMenuItem_Click);
             // 
+            // addDetailsToolStripMenuItem
+            // 
+            this.addDetailsToolStripMenuItem.Image = global::IMS.Properties.Resources.Details;
+            this.addDetailsToolStripMenuItem.Name = "addDetailsToolStripMenuItem";
+            this.addDetailsToolStripMenuItem.Size = new System.Drawing.Size(252, 26);
+            this.addDetailsToolStripMenuItem.Text = "Purchase Order Details";
+            this.addDetailsToolStripMenuItem.Click += new System.EventHandler(this.addDetailsToolStripMenuItem_Click);
+            // 
             // lblRecordsCount
             // 
             this.lblRecordsCount.AutoSize = true;
@@ -171,6 +169,18 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // btnShowAddUpdateProduct
+            // 
+            this.btnShowAddUpdateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAddUpdateProduct.Image = global::IMS.Properties.Resources.Products;
+            this.btnShowAddUpdateProduct.Location = new System.Drawing.Point(1146, 32);
+            this.btnShowAddUpdateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShowAddUpdateProduct.Name = "btnShowAddUpdateProduct";
+            this.btnShowAddUpdateProduct.Size = new System.Drawing.Size(85, 80);
+            this.btnShowAddUpdateProduct.TabIndex = 19;
+            this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
+            this.btnShowAddUpdateProduct.Click += new System.EventHandler(this.btnShowAddUpdateProduct_Click);
+            // 
             // frmListPurchaseOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -183,6 +193,9 @@
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvPurchaseOrders);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListPurchaseOrders";
             this.Text = "frmListPurchaseOrders";
             this.Load += new System.EventHandler(this.frmListPurchaseOrders_Load);
@@ -207,5 +220,6 @@
         private System.Windows.Forms.ToolStripMenuItem addPurchaseOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem editPurchaseOrderToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deletePurchaseOrderToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addDetailsToolStripMenuItem;
     }
 }
