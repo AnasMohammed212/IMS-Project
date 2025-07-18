@@ -85,5 +85,11 @@ namespace IMS
             frmInventoryTransactions frm=new frmInventoryTransactions();
             frm.ShowDialog();
         }
+
+        private void stockToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListStock frm=new frmListStock();
+            frm.ShowDialog();
+        }
     }
 }

@@ -31,14 +31,15 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.applicationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.purchaseOrdersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stockToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peopleToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.usersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.inventoryTranscationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.accountSettingsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.currentUserInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.changePasswordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.signOutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inventoryTranscationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,7 +62,8 @@
             // applicationsToolStripMenuItem
             // 
             this.applicationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.purchaseOrdersToolStripMenuItem});
+            this.purchaseOrdersToolStripMenuItem,
+            this.stockToolStripMenuItem});
             this.applicationsToolStripMenuItem.Image = global::IMS.Properties.Resources.Application;
             this.applicationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.applicationsToolStripMenuItem.Name = "applicationsToolStripMenuItem";
@@ -73,9 +75,18 @@
             this.purchaseOrdersToolStripMenuItem.Image = global::IMS.Properties.Resources.PurchaseOrder;
             this.purchaseOrdersToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.purchaseOrdersToolStripMenuItem.Name = "purchaseOrdersToolStripMenuItem";
-            this.purchaseOrdersToolStripMenuItem.Size = new System.Drawing.Size(228, 56);
+            this.purchaseOrdersToolStripMenuItem.Size = new System.Drawing.Size(254, 56);
             this.purchaseOrdersToolStripMenuItem.Text = "Purchase Orders";
             this.purchaseOrdersToolStripMenuItem.Click += new System.EventHandler(this.purchaseOrdersToolStripMenuItem_Click);
+            // 
+            // stockToolStripMenuItem
+            // 
+            this.stockToolStripMenuItem.Image = global::IMS.Properties.Resources.Stock;
+            this.stockToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.stockToolStripMenuItem.Name = "stockToolStripMenuItem";
+            this.stockToolStripMenuItem.Size = new System.Drawing.Size(254, 56);
+            this.stockToolStripMenuItem.Text = "Stock";
+            this.stockToolStripMenuItem.Click += new System.EventHandler(this.stockToolStripMenuItem_Click);
             // 
             // peopleToolStripMenuItem1
             // 
@@ -103,6 +114,15 @@
             this.productsToolStripMenuItem.Size = new System.Drawing.Size(130, 54);
             this.productsToolStripMenuItem.Text = "Products";
             this.productsToolStripMenuItem.Click += new System.EventHandler(this.productsToolStripMenuItem_Click);
+            // 
+            // inventoryTranscationsToolStripMenuItem
+            // 
+            this.inventoryTranscationsToolStripMenuItem.Image = global::IMS.Properties.Resources.Transactions;
+            this.inventoryTranscationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.inventoryTranscationsToolStripMenuItem.Name = "inventoryTranscationsToolStripMenuItem";
+            this.inventoryTranscationsToolStripMenuItem.Size = new System.Drawing.Size(219, 54);
+            this.inventoryTranscationsToolStripMenuItem.Text = "Inventory Transcations";
+            this.inventoryTranscationsToolStripMenuItem.Click += new System.EventHandler(this.inventoryTranscationsToolStripMenuItem_Click);
             // 
             // accountSettingsToolStripMenuItem1
             // 
@@ -143,15 +163,6 @@
             this.signOutToolStripMenuItem.Text = "Sign Out";
             this.signOutToolStripMenuItem.Click += new System.EventHandler(this.signOutToolStripMenuItem_Click);
             // 
-            // inventoryTranscationsToolStripMenuItem
-            // 
-            this.inventoryTranscationsToolStripMenuItem.Image = global::IMS.Properties.Resources.Transactions;
-            this.inventoryTranscationsToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.inventoryTranscationsToolStripMenuItem.Name = "inventoryTranscationsToolStripMenuItem";
-            this.inventoryTranscationsToolStripMenuItem.Size = new System.Drawing.Size(219, 54);
-            this.inventoryTranscationsToolStripMenuItem.Text = "Inventory Transcations";
-            this.inventoryTranscationsToolStripMenuItem.Click += new System.EventHandler(this.inventoryTranscationsToolStripMenuItem_Click);
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -185,6 +196,7 @@
         private System.Windows.Forms.ToolStripMenuItem applicationsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem purchaseOrdersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem inventoryTranscationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stockToolStripMenuItem;
     }
 }
 
