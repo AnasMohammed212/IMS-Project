@@ -120,10 +120,11 @@ namespace IMS
             this.Close();
         }
 
-        private void btnShowAddUpdateProduct_Click(object sender, EventArgs e)
+        private async void btnShowAddUpdateProduct_Click(object sender, EventArgs e)
         {
             frmAddUpdatePurchaseOrder frm=new frmAddUpdatePurchaseOrder();
             frm.ShowDialog();
+            await _LoadDataAsync();
         }
 
         private void showPurchaseOrderInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -150,16 +151,18 @@ namespace IMS
             await _LoadDataAsync();
         }
 
-        private void addPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void addPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdatePurchaseOrder frm = new frmAddUpdatePurchaseOrder();
             frm.ShowDialog();
+            await _LoadDataAsync();
         }
 
-        private void editPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void editPurchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmAddUpdatePurchaseOrder frm = new frmAddUpdatePurchaseOrder((int)dgvPurchaseOrders.CurrentRow.Cells[0].Value);
             frm.ShowDialog();
+            await _LoadDataAsync();
         }
 
         private void addDetailsToolStripMenuItem_Click(object sender, EventArgs e)

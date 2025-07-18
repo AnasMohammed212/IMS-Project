@@ -21,6 +21,8 @@ namespace IMS.PurchaseOrders
         private enMode _Mode;
         private int _PurchaseOrderID = -1;
         clsPurchaseOrder _PurchaseOrder;
+        private string _OriginalStatus = "Pending"; // افتراضيًا
+
         public frmAddUpdatePurchaseOrder()
         {
             InitializeComponent();
@@ -76,8 +78,18 @@ namespace IMS.PurchaseOrders
 
             cbStatus.Text = _PurchaseOrder.Status;
             txtNotes.Text = _PurchaseOrder.Notes;
+            _OriginalStatus = _PurchaseOrder.Status;
+
+            if (_PurchaseOrder.Status.Equals("Approved", StringComparison.OrdinalIgnoreCase) || _PurchaseOrder.Status.Equals("Cancelled", StringComparison.OrdinalIgnoreCase)) {
+                cbSupplier.Enabled = false;
+                cbStatus.Enabled = false;
+                txtNotes.ReadOnly = true;
+                btnSave.Enabled = false;
+
+                MessageBox.Show("This purchase order is approved and can no longer be modified.", "Locked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
-      
+
         private async void frmAddUpdatePurchaseOrder_Load(object sender, EventArgs e)
         {
             await _ResetDefaultValues();
@@ -106,18 +118,76 @@ namespace IMS.PurchaseOrders
             _PurchaseOrder.Status = cbStatus.Text;
             _PurchaseOrder.Notes = txtNotes.Text;
 
-            if (await _PurchaseOrder.Save())
+
+
+
+            bool purchaseSaved = await _PurchaseOrder.Save();
+
+            if (purchaseSaved)
             {
                 lblPurchaseOrderID.Text = _PurchaseOrder.PurchaseOrderID.ToString();
                 _Mode = enMode.Update;
                 lblTitle.Text = "Update Purchase Order";
-                MessageBox.Show("Saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                MessageBox.Show("Purchase order saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataBack?.Invoke(this, _PurchaseOrder.PurchaseOrderID);
+
+                // ✅ Only update stock if status changed from non-Approved to Approved
+                if (!string.Equals(_OriginalStatus, "Approved", StringComparison.OrdinalIgnoreCase) &&
+                    string.Equals(_PurchaseOrder.Status, "Approved", StringComparison.OrdinalIgnoreCase))
+                {
+                    var dtDetails = await clsPurchaseOrderDetail.GetAllOrderDetailsByPurchaseOrderID(_PurchaseOrder.PurchaseOrderID);
+
+                    if (dtDetails.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No purchase order details found to update stock.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
+
+                    foreach (DataRow row in dtDetails.Rows)
+                    {
+                        int productID = Convert.ToInt32(row["ProductID"]);
+                        decimal quantity = Convert.ToDecimal(row["Quantity"]);
+
+                        clsStock stock = clsStock.Find(productID);
+
+                        if (stock == null)
+                        {
+                            stock = new clsStock
+                            {
+                                ProductID = productID,
+                                Quantity = quantity
+                            };
+                        }
+                        else
+                        {
+                            stock.Quantity += quantity;
+                        }
+
+                        stock.LastUpdated = DateTime.Now;
+
+                        await stock.Save();
+                    }
+
+                    MessageBox.Show("Stock has been updated successfully after approving the purchase order.", "Stock Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                // Update the original status after saving
+                _OriginalStatus = _PurchaseOrder.Status;
             }
             else
             {
-                MessageBox.Show("Failed to save data.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Failed to save the purchase order.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+
+
+
+
+
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

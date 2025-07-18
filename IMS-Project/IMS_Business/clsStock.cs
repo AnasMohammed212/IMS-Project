@@ -12,6 +12,7 @@ namespace IMS_Business
     {
         private enum enMode { AddNew = 1, Update = 0 }
         private enMode Mode;
+        public int StockID { get; set; }
 
         public int ProductID { get; set; }
         public clsProduct ProductInfo;
@@ -20,14 +21,16 @@ namespace IMS_Business
 
         public clsStock()
         {
+            this.StockID = -1;
             this.ProductID = -1;
             this.Quantity = 0;
             this.LastUpdated = DateTime.Now;
             Mode = enMode.AddNew;
         }
 
-        public clsStock(int productID, decimal quantity, DateTime lastUpdated)
+        public clsStock(int stockID,int productID, decimal quantity, DateTime lastUpdated)
         {
+            this.StockID = stockID;
             this.ProductID = productID;
             this.ProductInfo=clsProduct.Find(ProductID);
             this.Quantity = quantity;
@@ -37,20 +40,22 @@ namespace IMS_Business
 
         public static clsStock Find(int productID)
         {
+            int stockID = -1;
             decimal quantity = 0;
             DateTime lastUpdated = DateTime.Now;
 
-            bool isFound = clsStockData.GetStockInfoByProductID(productID, ref quantity, ref lastUpdated);
+            bool isFound = clsStockData.GetStockInfoByProductID(productID, ref stockID, ref quantity, ref lastUpdated);
+
             if (isFound)
-                return new clsStock(productID, quantity, lastUpdated);
+                return new clsStock(stockID, productID, quantity, lastUpdated);
             else
                 return null;
         }
 
         private async Task<bool> _AddNewStock()
         {
-            this.ProductID = await clsStockData.AddNewStock(this.ProductID, this.Quantity);
-            return (this.ProductID != -1);
+            this.StockID = await clsStockData.AddNewStock(this.ProductID, this.Quantity);
+            return (this.StockID != -1);
         }
 
         private async Task<bool> _UpdateStock()

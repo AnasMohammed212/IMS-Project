@@ -46,10 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmInventoryTransactions.cs">
+    <Compile Include="Inventory Transactions\frmInventoryTransactions.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInventoryTransactions.Designer.cs">
+    <Compile Include="Inventory Transactions\frmInventoryTransactions.Designer.cs">
       <DependentUpon>frmInventoryTransactions.cs</DependentUpon>
     </Compile>
     <Compile Include="PurchaseOrders\ctrlPurchaseOrderCard.cs">
@@ -195,7 +195,7 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmInventoryTransactions.resx">
+    <EmbeddedResource Include="Inventory Transactions\frmInventoryTransactions.resx">
       <DependentUpon>frmInventoryTransactions.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\ctrlPurchaseOrderCard.resx">

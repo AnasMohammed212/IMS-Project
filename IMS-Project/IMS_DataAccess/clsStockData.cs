@@ -12,7 +12,7 @@ namespace IMS_DataAccess
     {
         public static async Task<int> AddNewStock(int ProductID, decimal Quantity)
         {
-            int NewID = -1;
+            int NewStockID = -1;
 
             try
             {
@@ -26,14 +26,14 @@ namespace IMS_DataAccess
                         command.Parameters.AddWithValue("@ProductID", ProductID);
                         command.Parameters.AddWithValue("@Quantity", Quantity);
 
-                        SqlParameter outputIdParam = new SqlParameter("@NewStockProductID", SqlDbType.Int)
+                        SqlParameter outputIdParam = new SqlParameter("@NewStockID", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
                         command.Parameters.Add(outputIdParam);
 
                         await command.ExecuteNonQueryAsync();
-                        NewID = (int)command.Parameters["@NewStockProductID"].Value;
+                        NewStockID = (int)command.Parameters["@NewStockID"].Value;
                     }
                 }
             }
@@ -42,8 +42,9 @@ namespace IMS_DataAccess
                 Console.WriteLine(ex.Message);
             }
 
-            return NewID;
+            return NewStockID;
         }
+
 
         public static async Task<bool> UpdateStock(int ProductID, decimal Quantity)
         {
@@ -102,7 +103,7 @@ namespace IMS_DataAccess
             return dt;
         }
 
-        public static bool GetStockInfoByProductID(int ProductID, ref decimal Quantity, ref DateTime LastUpdated)
+        public static bool GetStockInfoByProductID(int ProductID, ref int StockID, ref decimal Quantity, ref DateTime LastUpdated)
         {
             bool isFound = false;
 
@@ -121,6 +122,7 @@ namespace IMS_DataAccess
                         if (reader.Read())
                         {
                             isFound = true;
+                            StockID = (int)reader["StockID"];
                             Quantity = (decimal)reader["Quantity"];
                             LastUpdated = (DateTime)reader["LastUpdated"];
                         }
@@ -136,6 +138,7 @@ namespace IMS_DataAccess
 
             return isFound;
         }
+
 
         public static async Task<bool> IsStockExist(int ProductID)
         {
