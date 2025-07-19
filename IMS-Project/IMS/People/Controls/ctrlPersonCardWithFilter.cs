@@ -51,7 +51,7 @@ namespace IMS.People.Controls
         }
         private void FindNow()
         {
-
+            ctrlPersonCard1.LoadPersonInfo(int.Parse(txtSearchValue.Text));
             if (OnPersonSelected != null && SearchEnabled)
                 OnPersonSelected(ctrlPersonCard1.PersonID);
 
@@ -124,6 +124,16 @@ namespace IMS.People.Controls
         public void FilterFocus()
         {
             txtSearchValue.Focus();
+        }
+
+        private void ctrlPersonCard1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbFilters_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

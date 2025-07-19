@@ -15,14 +15,14 @@ namespace IMS_Business
 
         public int CustomerID { get; set; }
         public string CustomerName { get; set; }
-        public int CustomerContactPerson { get; set; }
+        public int  ContactPersonID { get; set; }
         public clsPerson ContactPersonInfo { get; set; }
 
         public clsCustomer()
         {
             this.CustomerID = -1;
             this.CustomerName = "";
-            this.CustomerContactPerson = -1;
+            this.ContactPersonID = -1;
             Mode = enMode.AddNew;
         }
 
@@ -30,7 +30,7 @@ namespace IMS_Business
         {
             this.CustomerID = customerID;
             this.CustomerName = customerName;
-            this.CustomerContactPerson = contactPersonID;
+            this.ContactPersonID = contactPersonID;
             this.ContactPersonInfo = clsPerson.Find(contactPersonID);
             Mode = enMode.Update;
         }
@@ -58,13 +58,13 @@ namespace IMS_Business
 
         private async Task<bool> _AddNewCustomer()
         {
-            this.CustomerID = await clsCustomerData.AddNewCustomer(this.CustomerName, this.CustomerContactPerson);
+            this.CustomerID = await clsCustomerData.AddNewCustomer(this.CustomerName, this.ContactPersonID);
             return (this.CustomerID != -1);
         }
 
         private async Task<bool> _UpdateCustomer()
         {
-            return await clsCustomerData.UpdateCustomer(this.CustomerID, this.CustomerName, this.CustomerContactPerson);
+            return await clsCustomerData.UpdateCustomer(this.CustomerID, this.CustomerName, this.ContactPersonID);
         }
 
         public async Task<bool> Save()

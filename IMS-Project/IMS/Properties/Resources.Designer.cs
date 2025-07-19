@@ -113,6 +113,16 @@ namespace IMS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Customers {
+            get {
+                object obj = ResourceManager.GetObject("Customers", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Date {
             get {
                 object obj = ResourceManager.GetObject("Date", resourceCulture);
@@ -346,6 +356,16 @@ namespace IMS.Properties {
         internal static System.Drawing.Bitmap Stock {
             get {
                 object obj = ResourceManager.GetObject("Stock", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Supplier {
+            get {
+                object obj = ResourceManager.GetObject("Supplier", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

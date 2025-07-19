@@ -27,7 +27,7 @@ namespace IMS_DataAccess
                         {
                             isFound = true;
                             CustomerName = reader["CustomerName"] as string ?? "";
-                            ContactPersonID = reader["CustomerContactPerson"] != DBNull.Value ? (int)reader["CustomerContactPerson"] : -1;
+                            ContactPersonID = reader["ContactPersonID"] != DBNull.Value ? (int)reader["ContactPersonID"] : -1;
                         }
                     }
                 }
@@ -56,7 +56,7 @@ namespace IMS_DataAccess
                         {
                             isFound = true;
                             CustomerID = (int)reader["CustomerID"];
-                            ContactPersonID = reader["CustomerContactPerson"] != DBNull.Value ? (int)reader["CustomerContactPerson"] : -1;
+                            ContactPersonID = reader["ContactPersonID"] != DBNull.Value ? (int)reader["ContactPersonID"] : -1;
                         }
                     }
                 }
@@ -162,7 +162,7 @@ namespace IMS_DataAccess
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@CustomerName", CustomerName);
-                        command.Parameters.AddWithValue("@CustomerContactPerson", ContactPersonID == -1 ? (object)DBNull.Value : ContactPersonID);
+                        command.Parameters.AddWithValue("@ContactPersonID", ContactPersonID == -1 ? (object)DBNull.Value : ContactPersonID);
 
                         SqlParameter outputIdParam = new SqlParameter("@NewCustomerID", SqlDbType.Int)
                         {
@@ -195,7 +195,7 @@ namespace IMS_DataAccess
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@CustomerID", CustomerID);
                         command.Parameters.AddWithValue("@CustomerName", CustomerName);
-                        command.Parameters.AddWithValue("@CustomerContactPerson", ContactPersonID == -1 ? (object)DBNull.Value : ContactPersonID);
+                        command.Parameters.AddWithValue("@ContactPersonID", ContactPersonID);
                         rowsAffected = await command.ExecuteNonQueryAsync();
                     }
                 }

@@ -7,10 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMS.Customers;
 using IMS.Global_Classes;
 using IMS.Login;
 using IMS.People;
 using IMS.Products;
+using IMS.Suppliers;
 using IMS.Users;
 
 namespace IMS
@@ -89,6 +91,18 @@ namespace IMS
         private void stockToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListStock frm=new frmListStock();
+            frm.ShowDialog();
+        }
+
+        private void customersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListCustomers frm=new frmListCustomers();
+            frm.ShowDialog();
+        }
+
+        private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListSuppliers frm=new frmListSuppliers();    
             frm.ShowDialog();
         }
     }

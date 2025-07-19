@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customers\frmListCustomers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Customers\frmListCustomers.Designer.cs">
+      <DependentUpon>frmListCustomers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmListStock .cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +177,18 @@
     <Compile Include="PurchaseOrders\Purchase Order Details\frmListPurchaseOrderDetails.Designer.cs">
       <DependentUpon>frmListPurchaseOrderDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Suppliers\frmAddUpdateSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suppliers\frmAddUpdateSupplier.Designer.cs">
+      <DependentUpon>frmAddUpdateSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers\frmListSuppliers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Suppliers\frmListSuppliers.Designer.cs">
+      <DependentUpon>frmListSuppliers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users\ctrlUserCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -201,6 +219,9 @@
     <Compile Include="Users\frmUserInfo.Designer.cs">
       <DependentUpon>frmUserInfo.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Customers\frmListCustomers.resx">
+      <DependentUpon>frmListCustomers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmListStock .resx">
       <DependentUpon>frmListStock .cs</DependentUpon>
     </EmbeddedResource>
@@ -270,6 +291,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\Purchase Order Details\frmListPurchaseOrderDetails.resx">
       <DependentUpon>frmListPurchaseOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suppliers\frmAddUpdateSupplier.resx">
+      <DependentUpon>frmAddUpdateSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Suppliers\frmListSuppliers.resx">
+      <DependentUpon>frmListSuppliers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Users\ctrlUserCard.resx">
       <DependentUpon>ctrlUserCard.cs</DependentUpon>
@@ -409,6 +436,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Customers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Supplier.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
