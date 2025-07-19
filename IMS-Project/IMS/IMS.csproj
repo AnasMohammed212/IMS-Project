@@ -183,6 +183,12 @@
     <Compile Include="PurchaseOrders\Purchase Order Details\frmListPurchaseOrderDetails.Designer.cs">
       <DependentUpon>frmListPurchaseOrderDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaleOrders\ctrlSaleOrderInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SaleOrders\ctrlSaleOrderInfo.Designer.cs">
+      <DependentUpon>ctrlSaleOrderInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="SaleOrders\frmListSaleOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\Purchase Order Details\frmListPurchaseOrderDetails.resx">
       <DependentUpon>frmListPurchaseOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleOrders\ctrlSaleOrderInfo.resx">
+      <DependentUpon>ctrlSaleOrderInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaleOrders\frmListSaleOrders.resx">
       <DependentUpon>frmListSaleOrders.cs</DependentUpon>
