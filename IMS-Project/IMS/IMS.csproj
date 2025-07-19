@@ -189,6 +189,12 @@
     <Compile Include="SaleOrders\ctrlSaleOrderInfo.Designer.cs">
       <DependentUpon>ctrlSaleOrderInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaleOrders\frmAddUpdateSaleOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleOrders\frmAddUpdateSaleOrder.Designer.cs">
+      <DependentUpon>frmAddUpdateSaleOrder.cs</DependentUpon>
+    </Compile>
     <Compile Include="SaleOrders\frmListSaleOrders.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,18 @@
     </Compile>
     <Compile Include="SaleOrders\frmShowSaleOrderInfo.Designer.cs">
       <DependentUpon>frmShowSaleOrderInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleOrders\Sale Order Details\frmAddUpdateDetail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleOrders\Sale Order Details\frmAddUpdateDetail.Designer.cs">
+      <DependentUpon>frmAddUpdateDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SaleOrders\Sale Order Details\frmListSaleOrdersDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleOrders\Sale Order Details\frmListSaleOrdersDetails.Designer.cs">
+      <DependentUpon>frmListSaleOrdersDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Suppliers\frmAddUpdateSupplier.cs">
       <SubType>Form</SubType>
@@ -322,11 +340,20 @@
     <EmbeddedResource Include="SaleOrders\ctrlSaleOrderInfo.resx">
       <DependentUpon>ctrlSaleOrderInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SaleOrders\frmAddUpdateSaleOrder.resx">
+      <DependentUpon>frmAddUpdateSaleOrder.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SaleOrders\frmListSaleOrders.resx">
       <DependentUpon>frmListSaleOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SaleOrders\frmShowSaleOrderInfo.resx">
       <DependentUpon>frmShowSaleOrderInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleOrders\Sale Order Details\frmAddUpdateDetail.resx">
+      <DependentUpon>frmAddUpdateDetail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleOrders\Sale Order Details\frmListSaleOrdersDetails.resx">
+      <DependentUpon>frmListSaleOrdersDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers\frmAddUpdateSupplier.resx">
       <DependentUpon>frmAddUpdateSupplier.cs</DependentUpon>
@@ -482,5 +509,6 @@
   <ItemGroup>
     <None Include="Resources\Sales.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

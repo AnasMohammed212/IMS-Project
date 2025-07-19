@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using IMS.SaleOrders.Sale_Order_Details;
 using IMS_Business;
 
 namespace IMS.SaleOrders
@@ -106,6 +107,57 @@ namespace IMS.SaleOrders
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void showSaleOrderInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmShowSaleOrderInfo frm = new frmShowSaleOrderInfo((int)dgvSaleOrders.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+        }
+
+        private async void btnShowAddUpdateSaleOrder_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateSaleOrder frm = new frmAddUpdateSaleOrder();
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void addSaleOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateSaleOrder frm = new frmAddUpdateSaleOrder();
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void editSaleOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateSaleOrder frm = new frmAddUpdateSaleOrder((int)dgvSaleOrders.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void deleteSaleOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int SaleOrderID = (int)dgvSaleOrders.CurrentRow.Cells[0].Value;
+            DialogResult result = MessageBox.Show($"Are you sure you want to delete Sale Order ID = {SaleOrderID}?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+                return;
+            if (await clsSaleOrder.DeleteSaleOrder(SaleOrderID))
+            {
+                MessageBox.Show("Sale Order has been deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                await _LoadDataAsync();
+            }
+
+            else
+                MessageBox.Show("Sale Order is not delted due to data connected to it.", "Faild", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+        }
+
+        private void addDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListSaleOrdersDetails frm=new frmListSaleOrdersDetails((int)dgvSaleOrders.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
         }
     }
 }

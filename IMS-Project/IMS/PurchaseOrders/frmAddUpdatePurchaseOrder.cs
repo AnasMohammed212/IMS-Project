@@ -132,7 +132,6 @@ namespace IMS.PurchaseOrders
                 MessageBox.Show("Purchase order saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataBack?.Invoke(this, _PurchaseOrder.PurchaseOrderID);
 
-                // ✅ Only update stock if status changed from non-Approved to Approved
                 if (!string.Equals(_OriginalStatus, "Approved", StringComparison.OrdinalIgnoreCase) &&
                     string.Equals(_PurchaseOrder.Status, "Approved", StringComparison.OrdinalIgnoreCase))
                 {
@@ -171,8 +170,6 @@ namespace IMS.PurchaseOrders
 
                     MessageBox.Show("Stock has been updated successfully after approving the purchase order.", "Stock Updated", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-                // Update the original status after saving
                 _OriginalStatus = _PurchaseOrder.Status;
             }
             else
