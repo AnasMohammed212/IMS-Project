@@ -14,36 +14,18 @@ namespace ConsoleApp1
         static async Task Main(string[] args)
         {
 
+            int customerID = 7;
 
-            clsCustomer foundCustomer=clsCustomer.Find(6);
+            Console.WriteLine($"Attempting to delete customer with ID = {customerID}...");
 
-            foundCustomer.CustomerName = "tttttttttttt";
-            await foundCustomer.Save();
-            //// 4. ✅ Update customer data
-            //if (foundCustomer != null)
-            //{
-            //    foundCustomer.CustomerName = "gggggggggggg";
-            //    foundCustomer.ContactPersonID = 1; // another valid contact person ID
+            bool isDeleted = await clsCustomerData.DeleteCustomer(customerID);
 
-            //    bool updated = await foundCustomer.Save();
-            //    Console.WriteLine(updated
-            //        ? "✅ Customer updated successfully"
-            //        : "❌ Failed to update customer");
-            //}
+            if (isDeleted)
+                Console.WriteLine("✔ Customer deleted successfully from DAL.");
+            else
+                Console.WriteLine("✖ Customer could not be deleted (maybe linked data exists or ID not found).");
 
-            //// 5. ✅ Display all customers
-            //Console.WriteLine("\n📋 All Customers:");
-            //DataTable allCustomers = await clsCustomer.GetAllCustomers();
-            //foreach (DataRow row in allCustomers.Rows)
-            //{
-            //    Console.WriteLine($"- ID: {row["CustomerID"]}, Name: {row["CustomerName"]}, ContactPersonID: {row["ContactPersonID"]}");
-            //}
-
-            //// 6. ✅ Delete the customer
-            //bool deleted = await clsCustomer.DeleteCustomer(11);
-            //Console.WriteLine(deleted
-            //    ? $"🗑️ Customer ID {testCustomerID} deleted successfully"
-            //    : "❌ Failed to delete customer");
+            Console.WriteLine("Test completed.");
 
         }
     }

@@ -206,7 +206,7 @@ namespace IMS_DataAccess
             }
             return (rowsAffected > 0);
         }
-
+       
         public static async Task<bool> DeleteCustomer(int CustomerID)
         {
             int rowsAffected = 0;
