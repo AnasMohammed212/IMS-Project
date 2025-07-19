@@ -55,6 +55,7 @@
     <Compile Include="clsPurchaseOrderData.cs" />
     <Compile Include="clsPurchaseOrderDetailsData.cs" />
     <Compile Include="clsSaleOrderData.cs" />
+    <Compile Include="clsSaleOrderDetailData.cs" />
     <Compile Include="clsStockData.cs" />
     <Compile Include="clsSupplierData.cs" />
     <Compile Include="clsUnitOfMeasureData.cs" />
