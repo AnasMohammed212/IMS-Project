@@ -195,6 +195,12 @@
     <Compile Include="SaleOrders\frmListSaleOrders.Designer.cs">
       <DependentUpon>frmListSaleOrders.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaleOrders\frmShowSaleOrderInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleOrders\frmShowSaleOrderInfo.Designer.cs">
+      <DependentUpon>frmShowSaleOrderInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Suppliers\frmAddUpdateSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -318,6 +324,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SaleOrders\frmListSaleOrders.resx">
       <DependentUpon>frmListSaleOrders.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleOrders\frmShowSaleOrderInfo.resx">
+      <DependentUpon>frmShowSaleOrderInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers\frmAddUpdateSupplier.resx">
       <DependentUpon>frmAddUpdateSupplier.cs</DependentUpon>
