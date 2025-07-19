@@ -34,7 +34,7 @@ namespace IMS.Customers
                 dgvCustomers.Columns[1].Width = 150;
 
                 dgvCustomers.Columns[2].HeaderText = "Contact Person ID";
-                
+
 
                 dgvCustomers.Columns[3].HeaderText = "Contact Person";
                 dgvCustomers.Columns[3].Width = 150;
@@ -43,7 +43,7 @@ namespace IMS.Customers
                 dgvCustomers.Columns[4].Width = 120;
 
                 dgvCustomers.Columns[5].HeaderText = "Email";
-                dgvCustomers.Columns[5].Width = 200;
+                dgvCustomers.Columns[5].Width = 230;
             }
             lblRecordsCount.Text = _dtAllCustomers.Rows.Count.ToString();
         }
@@ -103,7 +103,7 @@ namespace IMS.Customers
             }
 
 
-                    if (filterColumn == "CustomerID"|| filterColumn == "ContactPersonID")
+            if (filterColumn == "CustomerID" || filterColumn == "ContactPersonID")
             {
                 _dtAllCustomers.DefaultView.RowFilter = string.Format("[{0}] = {1}", filterColumn, txtFilterValue.Text.Trim());
             }
@@ -128,6 +128,47 @@ namespace IMS.Customers
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private async void btnShowAddUpdateProduct_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateCustomer frm = new frmAddUpdateCustomer();
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void addCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateCustomer frm = new frmAddUpdateCustomer();
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void editCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddUpdateCustomer frm = new frmAddUpdateCustomer((int)dgvCustomers.CurrentRow.Cells[0].Value);
+            frm.ShowDialog();
+            await _LoadDataAsync();
+        }
+
+        private async void deleteCustomerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int CustomerID = (int)dgvCustomers.CurrentRow.Cells[0].Value;
+
+            DialogResult result = MessageBox.Show("Are you sure you want to delete this Customer?", "Confirm Delete", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                if (await clsCustomer.DeleteCustomer(CustomerID))
+                {
+                    MessageBox.Show("Customer has been deleted successfully", "Deleted", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    await _LoadDataAsync();
+                }
+                else
+                {
+                    MessageBox.Show("Customer is not deleted due to data connected to it.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

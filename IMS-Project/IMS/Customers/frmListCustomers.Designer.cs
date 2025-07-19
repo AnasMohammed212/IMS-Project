@@ -35,13 +35,13 @@
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.lblRecordsCount = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmsCustomer = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
@@ -90,6 +90,7 @@
             // 
             this.dgvCustomers.AllowUserToAddRows = false;
             this.dgvCustomers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCustomers.ContextMenuStrip = this.cmsCustomer;
             this.dgvCustomers.Location = new System.Drawing.Point(28, 139);
             this.dgvCustomers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dgvCustomers.Name = "dgvCustomers";
@@ -120,17 +121,6 @@
             this.btnClose.UseVisualStyleBackColor = true;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnShowAddUpdateProduct
-            // 
-            this.btnShowAddUpdateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAddUpdateProduct.Image = global::IMS.Properties.Resources.Customers;
-            this.btnShowAddUpdateProduct.Location = new System.Drawing.Point(1143, 45);
-            this.btnShowAddUpdateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowAddUpdateProduct.Name = "btnShowAddUpdateProduct";
-            this.btnShowAddUpdateProduct.Size = new System.Drawing.Size(85, 80);
-            this.btnShowAddUpdateProduct.TabIndex = 24;
-            this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
-            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -148,31 +138,46 @@
             this.cmsCustomer.Name = "contextMenuStrip1";
             this.cmsCustomer.Size = new System.Drawing.Size(194, 140);
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
+            // 
+            // btnShowAddUpdateProduct
+            // 
+            this.btnShowAddUpdateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAddUpdateProduct.Image = global::IMS.Properties.Resources.Customers;
+            this.btnShowAddUpdateProduct.Location = new System.Drawing.Point(1143, 45);
+            this.btnShowAddUpdateProduct.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShowAddUpdateProduct.Name = "btnShowAddUpdateProduct";
+            this.btnShowAddUpdateProduct.Size = new System.Drawing.Size(85, 80);
+            this.btnShowAddUpdateProduct.TabIndex = 24;
+            this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
+            this.btnShowAddUpdateProduct.Click += new System.EventHandler(this.btnShowAddUpdateProduct_Click);
+            // 
             // addCustomerToolStripMenuItem
             // 
             this.addCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
             this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.addCustomerToolStripMenuItem.Text = "Add Customer";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
             // 
             // editCustomerToolStripMenuItem
             // 
             this.editCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
             this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
-            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.editCustomerToolStripMenuItem.Text = "Edit Customer";
+            this.editCustomerToolStripMenuItem.Click += new System.EventHandler(this.editCustomerToolStripMenuItem_Click);
             // 
             // deleteCustomerToolStripMenuItem
             // 
             this.deleteCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
             this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
             this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
+            this.deleteCustomerToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomerToolStripMenuItem_Click);
             // 
             // sendEmailToolStripMenuItem
             // 
