@@ -70,6 +70,12 @@
     <Compile Include="Inventory Transactions\frmInventoryTransactions.Designer.cs">
       <DependentUpon>frmInventoryTransactions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Products\Controls\ctrlProductCardWithFilter.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Products\Controls\ctrlProductCardWithFilter.Designer.cs">
+      <DependentUpon>ctrlProductCardWithFilter.cs</DependentUpon>
+    </Compile>
     <Compile Include="PurchaseOrders\ctrlPurchaseOrderCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -139,10 +145,10 @@
     <Compile Include="People\frmShowPersonInfo.Designer.cs">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Products\ctrlProductCard.cs">
+    <Compile Include="Products\Controls\ctrlProductCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Products\ctrlProductCard.Designer.cs">
+    <Compile Include="Products\Controls\ctrlProductCard.Designer.cs">
       <DependentUpon>ctrlProductCard.cs</DependentUpon>
     </Compile>
     <Compile Include="Products\frmAddUpdateProduct.cs">
@@ -273,6 +279,9 @@
     <EmbeddedResource Include="Inventory Transactions\frmInventoryTransactions.resx">
       <DependentUpon>frmInventoryTransactions.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Products\Controls\ctrlProductCardWithFilter.resx">
+      <DependentUpon>ctrlProductCardWithFilter.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\ctrlPurchaseOrderCard.resx">
       <DependentUpon>ctrlPurchaseOrderCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -306,7 +315,7 @@
     <EmbeddedResource Include="People\frmShowPersonInfo.resx">
       <DependentUpon>frmShowPersonInfo.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Products\ctrlProductCard.resx">
+    <EmbeddedResource Include="Products\Controls\ctrlProductCard.resx">
       <DependentUpon>ctrlProductCard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products\frmAddUpdateProduct.resx">

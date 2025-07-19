@@ -108,9 +108,10 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
 
         private async  void btnShowAddDetail_Click(object sender, EventArgs e)
         {
-            frmAddUpdateDetail frm = new frmAddUpdateDetail(_PurchaseOrderID);
-            frm.ShowDialog();
+            frmAddUpdateDetail add = new frmAddUpdateDetail(_PurchaseOrderID);
+            add.ShowDialog();
             await _LoadDataAsync();
+
         }
 
         private async void editDetailToolStripMenuItem_Click(object sender, EventArgs e)
@@ -122,9 +123,10 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
 
         private async void addDetailToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAddUpdateDetail frm = new frmAddUpdateDetail(_PurchaseOrderID);
-            frm.ShowDialog();
+            frmAddUpdateDetail add = new frmAddUpdateDetail(_PurchaseOrderID);
+            add.ShowDialog();
             await _LoadDataAsync();
+
         }
 
         private async void deleteDetailToolStripMenuItem_Click(object sender, EventArgs e)

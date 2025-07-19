@@ -60,6 +60,18 @@ namespace IMS.Products
             }
             _FillProductInfo();
         }
+        public void LoadProductInfo(string ProductName)
+        {
+            _Product = clsProduct.Find(ProductName);
+            if (_Product == null)
+            {
+                ResetProductInfo();
+                MessageBox.Show("No Product With Product Name = " + ProductName.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+
+            }
+            _FillProductInfo();
+        }
         private void ctrlProductCard_Load(object sender, EventArgs e)
         {
 

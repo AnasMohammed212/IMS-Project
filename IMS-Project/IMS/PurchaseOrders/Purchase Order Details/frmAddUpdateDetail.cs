@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using IMS.Global_Classes;
+using IMS.People.Controls;
 using IMS_Business;
 
 namespace IMS.PurchaseOrders.Purchase_Order_Details
 {
     public partial class frmAddUpdateDetail : Form
     {
+
         public delegate void DataBackEventHandler(object sender, int DetailID);
         public event DataBackEventHandler DataBack;
 
@@ -28,19 +30,12 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
             _Mode = enMode.AddNew;
             _PurchaseOrderID = PurchaseOrderID;
         }
-
-        public frmAddUpdateDetail(int PurchaseOrderID,int DetailID)
+        public frmAddUpdateDetail(int PurchaseOrderID, int DetailID)
         {
-            InitializeComponent();
+             InitializeComponent();
             _Mode = enMode.Update;
             _DetailID = DetailID;
             _PurchaseOrderID = PurchaseOrderID;
-        }
-        private async Task _FillProductsComboBox()
-        {
-            var dtProducts = await clsProduct.GetAllProducts();
-            foreach (DataRow row in dtProducts.Rows)
-                cbProducts.Items.Add(row["ProductName"]);
         }
         private void FillQuantityComboBox()
         {
@@ -54,57 +49,52 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
             cbQuantity.DropDownStyle = ComboBoxStyle.DropDownList;
             cbQuantity.SelectedIndex = 0;
         }
-        private async Task _ResetDefaultValues()
+        private void _ResetDefaultValues()
         {
-            await _FillProductsComboBox();
-            FillQuantityComboBox();
-            cbProducts.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbProducts.SelectedIndex = 0;
-
-            cbQuantity.SelectedIndex=0;
-            txtUnitPrice.Text = "0.00";
-            txtPurchaseOrderID.Text = _PurchaseOrderID.ToString();
-            txtPurchaseOrderID.ReadOnly = true;
             if (_Mode == enMode.AddNew)
             {
                 lblTitle.Text = "Add New Detail";
+                this.Text = "Add New Detail";
                 _Detail = new clsPurchaseOrderDetail();
                 lblDetailID.Text = "[????]";
+                ctrlProductCardWithFilter1.FilterFocus();
             }
             else
             {
                 lblTitle.Text = "Update Detail";
+                this.Text = "Update Detail";
+                btnSave.Enabled = true;
+               
             }
+
+            FillQuantityComboBox();
+           
+            cbQuantity.SelectedIndex = 0;
+            txtPurchaseOrderID.Text = _PurchaseOrderID.ToString();
+            txtPurchaseOrderID.ReadOnly = true;
+          
         }
-        private void _LoadData()
+
+        private void _LodaData()
         {
             _Detail = clsPurchaseOrderDetail.Find(_DetailID);
-
+            ctrlProductCardWithFilter1.FilterEnabled = false;
             if (_Detail == null)
             {
-                MessageBox.Show("No detail found with ID = " + _DetailID, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("No Detail with ID = " + _DetailID, "Detail Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
                 return;
             }
-
-            lblDetailID.Text = _DetailID.ToString();
-            txtPurchaseOrderID.Text = _PurchaseOrderID.ToString();
-            cbProducts.Text = clsProduct.Find(_Detail.ProductID)?.ProductName;
-            cbQuantity.Text = _Detail.Quantity.ToString();
-            txtUnitPrice.Text = _Detail.UnitPrice.ToString();
-           
-            txtPurchaseOrderID.Text = _PurchaseOrderID.ToString();
-            txtPurchaseOrderID.ReadOnly = true;
-            
-                
+            ctrlProductCardWithFilter1.LoadProductInfo(_Detail.ProductID);
+            lblDetailID.Text = _Detail.DetailID.ToString();
+            txtPurchaseOrderID.Text = _Detail.PurchaseOrderID.ToString();
+           cbQuantity.Text = _Detail.Quantity.ToString();
         }
-
-        
-        private async void frmAddUpdateDetail_Load(object sender, EventArgs e)
+        private void AddUpdatePurchaseDetail_Load(object sender, EventArgs e)
         {
-            await _ResetDefaultValues();
+            _ResetDefaultValues();
             if (_Mode == enMode.Update)
-                _LoadData();
+                _LodaData();
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
@@ -114,18 +104,27 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
                 MessageBox.Show("Please fix validation errors.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (ctrlProductCardWithFilter1.SelectedProductInfo == null)
+            {
+                MessageBox.Show("Please select a product before saving.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
-            var selectedProduct = clsProduct.Find(cbProducts.Text);
+            int selectedProductID = ctrlProductCardWithFilter1.SelectedProductInfo.ProductID;
+            var selectedProduct = clsProduct.Find(selectedProductID);
             if (selectedProduct == null)
             {
                 MessageBox.Show("Product not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            _Detail.ProductID = selectedProduct.ProductID;
+            _Detail.ProductID = selectedProductID;
             _Detail.PurchaseOrderID = _PurchaseOrderID;
             _Detail.Quantity = Convert.ToDecimal(cbQuantity.Text);
-            _Detail.UnitPrice = decimal.Parse(txtUnitPrice.Text);
+            _Detail.UnitPrice = (ctrlProductCardWithFilter1.SelectedProductInfo.PurchasePrice) * Convert.ToDecimal(cbQuantity.Text);
+
+
+
 
             if (await _Detail.Save())
             {
@@ -140,7 +139,7 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
                     Quantity = _Detail.Quantity,
                     TransactionType = "IN",
                     TransactionDate = DateTime.Now,
-                    PerformedByUserID = clsGlobal.CurrentUser.UserID, 
+                    PerformedByUserID = clsGlobal.CurrentUser.UserID,
                 };
                 bool transactionSaved = await inventoryTransaction.Save();
                 if (!transactionSaved)
@@ -152,6 +151,10 @@ namespace IMS.PurchaseOrders.Purchase_Order_Details
             {
                 MessageBox.Show("Failed to save detail.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+
+
+
         }
 
         private void btnClose_Click(object sender, EventArgs e)

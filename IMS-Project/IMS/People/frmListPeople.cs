@@ -16,6 +16,7 @@ namespace IMS.People
 
         private async void _LoadDataAsync()
         {
+            cbFilterBy.SelectedIndex = 0;
             _dtAllPeople = await clsPerson.GetAllPeople();
             _dtAllPeople = _dtAllPeople.DefaultView.ToTable(false, "PersonID",
                                  "FirstName", "SecondName", "ThirdName", "LastName",

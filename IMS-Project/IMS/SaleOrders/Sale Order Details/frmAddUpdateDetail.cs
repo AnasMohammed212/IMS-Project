@@ -35,12 +35,7 @@ namespace IMS.SaleOrders.Sale_Order_Details
             _DetailID = DetailID;
             _SaleOrderID = SaleOrderID;
         }
-        private async Task _FillProductsComboBox()
-        {
-            var dtProducts = await clsProduct.GetAllProducts();
-            foreach (DataRow row in dtProducts.Rows)
-                cbProducts.Items.Add(row["ProductName"]);
-        }
+       
 
         private void FillQuantityComboBox()
         {
@@ -50,44 +45,45 @@ namespace IMS.SaleOrders.Sale_Order_Details
             cbQuantity.DropDownStyle = ComboBoxStyle.DropDownList;
             cbQuantity.SelectedIndex = 0;
         }
+
         private async Task _ResetDefaultValues()
         {
-            await _FillProductsComboBox();
-            FillQuantityComboBox();
-            cbProducts.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbProducts.SelectedIndex = 0;
-
-            txtUnitPrice.Text = "0.00";
-            txtSaleOrderID.Text = _SaleOrderID.ToString();
-            txtSaleOrderID.ReadOnly = true;
 
             if (_Mode == enMode.AddNew)
             {
-                lblTitle.Text = "Add New Sale Detail";
+                lblTitle.Text = "Add New Detail";
+                this.Text = "Add New Detail";
                 _Detail = new clsSaleOrderDetail();
                 lblDetailID.Text = "[????]";
+                ctrlProductCardWithFilter1.FilterFocus();
             }
             else
             {
-                lblTitle.Text = "Update Sale Detail";
+                lblTitle.Text = "Update Detail";
+                this.Text = "Update Detail";
+                btnSave.Enabled = true;
+
             }
+            FillQuantityComboBox();
+            cbQuantity.SelectedIndex = 0;
+            txtSaleOrderID.Text = _SaleOrderID.ToString();
+            txtSaleOrderID.ReadOnly = true;
         }
         private void _LoadData()
         {
             _Detail = clsSaleOrderDetail.Find(_DetailID);
-
+            ctrlProductCardWithFilter1.FilterEnabled = false;
             if (_Detail == null)
             {
                 MessageBox.Show("No sale detail found with ID = " + _DetailID, "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 this.Close();
                 return;
             }
-
-            lblDetailID.Text = _DetailID.ToString();
-            txtSaleOrderID.Text = _SaleOrderID.ToString();
-            cbProducts.Text = clsProduct.Find(_Detail.ProductID)?.ProductName;
+            ctrlProductCardWithFilter1.LoadProductInfo(_Detail.ProductID);
+            lblDetailID.Text = _Detail.DetailID.ToString();
+            txtSaleOrderID.Text = _Detail.SaleOrderID.ToString();
             cbQuantity.Text = _Detail.Quantity.ToString();
-            txtUnitPrice.Text = _Detail.UnitPrice.ToString();
+
         }
         private async void frmAddUpdateDetail_Load(object sender, EventArgs e)
         {
@@ -98,23 +94,58 @@ namespace IMS.SaleOrders.Sale_Order_Details
 
         private async void btnSave_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private async void btnSave_Click_1(object sender, EventArgs e)
+        {
             if (!this.ValidateChildren())
             {
                 MessageBox.Show("Please fix validation errors.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            var selectedProduct = clsProduct.Find(cbProducts.Text);
+            if (ctrlProductCardWithFilter1.SelectedProductInfo == null)
+            {
+                MessageBox.Show("Please select a product before saving.", "Validation", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            int selectedProductID = ctrlProductCardWithFilter1.SelectedProductInfo.ProductID;
+            var selectedProduct = clsProduct.Find(selectedProductID);
             if (selectedProduct == null)
             {
                 MessageBox.Show("Product not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            decimal quantityToSell = Convert.ToDecimal(cbQuantity.Text);
+
+          
+            var currentStock = clsStock.Find(selectedProductID);
+            if (currentStock == null)
+            {
+                MessageBox.Show("Stock info not found for the selected product.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (currentStock.Quantity < quantityToSell)
+            {
+                MessageBox.Show($"Not enough stock available. Current stock: {currentStock.Quantity}", "Stock Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+
+
             _Detail.ProductID = selectedProduct.ProductID;
             _Detail.SaleOrderID = _SaleOrderID;
             _Detail.Quantity = Convert.ToDecimal(cbQuantity.Text);
-            _Detail.UnitPrice = decimal.Parse(txtUnitPrice.Text);
+            _Detail.UnitPrice = (ctrlProductCardWithFilter1.SelectedProductInfo.PurchasePrice) * Convert.ToDecimal(cbQuantity.Text);
 
             if (await _Detail.Save())
             {
@@ -124,7 +155,7 @@ namespace IMS.SaleOrders.Sale_Order_Details
                 MessageBox.Show("Saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataBack?.Invoke(this, _Detail.DetailID);
 
-               
+
                 clsInventoryTransaction inventoryTransaction = new clsInventoryTransaction
                 {
                     ProductID = _Detail.ProductID,
@@ -146,7 +177,7 @@ namespace IMS.SaleOrders.Sale_Order_Details
             }
         }
 
-        private void btnClose_Click(object sender, EventArgs e)
+        private void btnClose_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }

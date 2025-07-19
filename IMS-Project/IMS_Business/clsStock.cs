@@ -68,6 +68,10 @@ namespace IMS_Business
             switch (Mode)
             {
                 case enMode.AddNew:
+                    if (this.Quantity < 0)
+                    {
+                        throw new InvalidOperationException("Quantity cannot be negative.");
+                    }
                     if (await _AddNewStock())
                     {
                         Mode = enMode.Update;
