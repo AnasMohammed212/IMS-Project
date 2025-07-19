@@ -12,6 +12,7 @@ using IMS.Global_Classes;
 using IMS.Login;
 using IMS.People;
 using IMS.Products;
+using IMS.SaleOrders;
 using IMS.Suppliers;
 using IMS.Users;
 
@@ -103,6 +104,12 @@ namespace IMS
         private void suppliersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmListSuppliers frm=new frmListSuppliers();    
+            frm.ShowDialog();
+        }
+
+        private void salesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmListSaleOrders frm=new frmListSaleOrders();  
             frm.ShowDialog();
         }
     }

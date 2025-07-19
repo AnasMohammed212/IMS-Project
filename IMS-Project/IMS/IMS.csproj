@@ -183,6 +183,12 @@
     <Compile Include="PurchaseOrders\Purchase Order Details\frmListPurchaseOrderDetails.Designer.cs">
       <DependentUpon>frmListPurchaseOrderDetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="SaleOrders\frmListSaleOrders.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SaleOrders\frmListSaleOrders.Designer.cs">
+      <DependentUpon>frmListSaleOrders.cs</DependentUpon>
+    </Compile>
     <Compile Include="Suppliers\frmAddUpdateSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -300,6 +306,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PurchaseOrders\Purchase Order Details\frmListPurchaseOrderDetails.resx">
       <DependentUpon>frmListPurchaseOrderDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SaleOrders\frmListSaleOrders.resx">
+      <DependentUpon>frmListSaleOrders.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Suppliers\frmAddUpdateSupplier.resx">
       <DependentUpon>frmAddUpdateSupplier.cs</DependentUpon>
@@ -451,6 +460,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Supplier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sales.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

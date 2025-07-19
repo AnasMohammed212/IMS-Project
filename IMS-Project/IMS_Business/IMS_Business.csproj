@@ -50,6 +50,7 @@
     <Compile Include="clsPurchaseOrder.cs" />
     <Compile Include="clsPurchaseOrderDetail.cs" />
     <Compile Include="clsSaleOrder.cs" />
+    <Compile Include="clsSaleOrderDetail.cs" />
     <Compile Include="clsStock.cs" />
     <Compile Include="clsSupplier.cs" />
     <Compile Include="clsUnitOfMeasure.cs" />

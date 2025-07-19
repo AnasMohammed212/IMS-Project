@@ -14,18 +14,7 @@ namespace ConsoleApp1
         static async Task Main(string[] args)
         {
 
-            int customerID = 7;
-
-            Console.WriteLine($"Attempting to delete customer with ID = {customerID}...");
-
-            bool isDeleted = await clsCustomerData.DeleteCustomer(customerID);
-
-            if (isDeleted)
-                Console.WriteLine("✔ Customer deleted successfully from DAL.");
-            else
-                Console.WriteLine("✖ Customer could not be deleted (maybe linked data exists or ID not found).");
-
-            Console.WriteLine("Test completed.");
+            
 
         }
     }
