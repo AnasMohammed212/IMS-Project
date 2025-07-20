@@ -158,6 +158,11 @@ namespace IMS.People
         {
             MessageBox.Show("Sorry this Service is Not implemented Yet! ", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
     

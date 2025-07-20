@@ -43,6 +43,7 @@
             this.phonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblRecordCount = new System.Windows.Forms.Label();
             this.btnShowAddUpdatePerson = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPeople)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -188,11 +189,23 @@
             this.btnShowAddUpdatePerson.UseVisualStyleBackColor = true;
             this.btnShowAddUpdatePerson.Click += new System.EventHandler(this.btnShowAddUpdatePerson_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1087, 537);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(131, 44);
+            this.btnClose.TabIndex = 12;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmListPeople
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1244, 583);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.lblRecordCount);
             this.Controls.Add(this.txtFilterValue);
             this.Controls.Add(this.btnShowAddUpdatePerson);
@@ -228,5 +241,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem phonToolStripMenuItem;
+        private System.Windows.Forms.Button btnClose;
     }
 }

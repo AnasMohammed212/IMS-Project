@@ -162,7 +162,11 @@
             this.Controls.Add(this.txtSupplierName);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddUpdateSupplier";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdateSupplier";
             this.Load += new System.EventHandler(this.frmAddUpdateSupplier_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

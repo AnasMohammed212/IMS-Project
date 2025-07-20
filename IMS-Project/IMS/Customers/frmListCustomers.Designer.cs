@@ -33,20 +33,20 @@
             this.lblFilterBy = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
-            this.lblRecordsCount = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmsCustomer = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             this.addCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteCustomerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.phonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnShowAddUpdateProduct = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.cmsCustomer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFilterValue
@@ -100,6 +100,62 @@
             this.dgvCustomers.Size = new System.Drawing.Size(1200, 414);
             this.dgvCustomers.TabIndex = 21;
             // 
+            // cmsCustomer
+            // 
+            this.cmsCustomer.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.cmsCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addCustomerToolStripMenuItem,
+            this.editCustomerToolStripMenuItem,
+            this.deleteCustomerToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.sendEmailToolStripMenuItem,
+            this.phonToolStripMenuItem});
+            this.cmsCustomer.Name = "contextMenuStrip1";
+            this.cmsCustomer.Size = new System.Drawing.Size(194, 140);
+            // 
+            // addCustomerToolStripMenuItem
+            // 
+            this.addCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
+            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
+            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.addCustomerToolStripMenuItem.Text = "Add Customer";
+            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
+            // 
+            // editCustomerToolStripMenuItem
+            // 
+            this.editCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
+            this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
+            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.editCustomerToolStripMenuItem.Text = "Edit Customer";
+            this.editCustomerToolStripMenuItem.Click += new System.EventHandler(this.editCustomerToolStripMenuItem_Click);
+            // 
+            // deleteCustomerToolStripMenuItem
+            // 
+            this.deleteCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
+            this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
+            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
+            this.deleteCustomerToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomerToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
+            // 
+            // sendEmailToolStripMenuItem
+            // 
+            this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
+            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
+            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.sendEmailToolStripMenuItem.Text = "Send Email";
+            // 
+            // phonToolStripMenuItem
+            // 
+            this.phonToolStripMenuItem.Image = global::IMS.Properties.Resources.Phone;
+            this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
+            this.phonToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.phonToolStripMenuItem.Text = "Phone Call";
+            // 
             // lblRecordsCount
             // 
             this.lblRecordsCount.AutoSize = true;
@@ -125,24 +181,6 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // cmsCustomer
-            // 
-            this.cmsCustomer.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.cmsCustomer.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.addCustomerToolStripMenuItem,
-            this.editCustomerToolStripMenuItem,
-            this.deleteCustomerToolStripMenuItem,
-            this.toolStripSeparator1,
-            this.sendEmailToolStripMenuItem,
-            this.phonToolStripMenuItem});
-            this.cmsCustomer.Name = "contextMenuStrip1";
-            this.cmsCustomer.Size = new System.Drawing.Size(194, 140);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(190, 6);
-            // 
             // btnShowAddUpdateProduct
             // 
             this.btnShowAddUpdateProduct.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -154,44 +192,6 @@
             this.btnShowAddUpdateProduct.TabIndex = 24;
             this.btnShowAddUpdateProduct.UseVisualStyleBackColor = true;
             this.btnShowAddUpdateProduct.Click += new System.EventHandler(this.btnShowAddUpdateProduct_Click);
-            // 
-            // addCustomerToolStripMenuItem
-            // 
-            this.addCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Person;
-            this.addCustomerToolStripMenuItem.Name = "addCustomerToolStripMenuItem";
-            this.addCustomerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.addCustomerToolStripMenuItem.Text = "Add Customer";
-            this.addCustomerToolStripMenuItem.Click += new System.EventHandler(this.addCustomerToolStripMenuItem_Click);
-            // 
-            // editCustomerToolStripMenuItem
-            // 
-            this.editCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Edit;
-            this.editCustomerToolStripMenuItem.Name = "editCustomerToolStripMenuItem";
-            this.editCustomerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.editCustomerToolStripMenuItem.Text = "Edit Customer";
-            this.editCustomerToolStripMenuItem.Click += new System.EventHandler(this.editCustomerToolStripMenuItem_Click);
-            // 
-            // deleteCustomerToolStripMenuItem
-            // 
-            this.deleteCustomerToolStripMenuItem.Image = global::IMS.Properties.Resources.Delete;
-            this.deleteCustomerToolStripMenuItem.Name = "deleteCustomerToolStripMenuItem";
-            this.deleteCustomerToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
-            this.deleteCustomerToolStripMenuItem.Text = "Delete Customer";
-            this.deleteCustomerToolStripMenuItem.Click += new System.EventHandler(this.deleteCustomerToolStripMenuItem_Click);
-            // 
-            // sendEmailToolStripMenuItem
-            // 
-            this.sendEmailToolStripMenuItem.Image = global::IMS.Properties.Resources.Email;
-            this.sendEmailToolStripMenuItem.Name = "sendEmailToolStripMenuItem";
-            this.sendEmailToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
-            this.sendEmailToolStripMenuItem.Text = "Send Email";
-            // 
-            // phonToolStripMenuItem
-            // 
-            this.phonToolStripMenuItem.Image = global::IMS.Properties.Resources.Phone;
-            this.phonToolStripMenuItem.Name = "phonToolStripMenuItem";
-            this.phonToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
-            this.phonToolStripMenuItem.Text = "Phone Call";
             // 
             // frmListCustomers
             // 
@@ -205,12 +205,15 @@
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvCustomers);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListCustomers";
             this.Text = "frmListCustomers";
             this.Load += new System.EventHandler(this.frmListCustomers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCustomers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.cmsCustomer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

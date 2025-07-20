@@ -57,6 +57,9 @@
             this.ClientSize = new System.Drawing.Size(588, 354);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlPurchaseOrderCard1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmShowPurchaseOrderInfo";
             this.Text = "frmShowPurchaseOrderInfo";
             this.Load += new System.EventHandler(this.frmShowPurchaseOrderInfo_Load);

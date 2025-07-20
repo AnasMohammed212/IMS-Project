@@ -170,7 +170,11 @@
             this.Controls.Add(this.txtNotes);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.lblTitle);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddUpdatePurchaseOrder";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddUpdatePurchaseOrder";
             this.Load += new System.EventHandler(this.frmAddUpdatePurchaseOrder_Load);
             this.ResumeLayout(false);

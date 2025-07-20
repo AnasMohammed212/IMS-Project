@@ -118,6 +118,9 @@
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvInventoryTransactions);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmInventoryTransactions";
             this.Text = "frmInventoryTransactions";
             this.Load += new System.EventHandler(this.frmInventoryTransactions_Load);

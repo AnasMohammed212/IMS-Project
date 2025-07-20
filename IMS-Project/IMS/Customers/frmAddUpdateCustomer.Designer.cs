@@ -162,6 +162,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.txtCustomerName);
             this.Controls.Add(this.ctrlPersonCardWithFilter1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmAddUpdateCustomer";
             this.Text = "frmAddUpdateCustomer";
             this.Load += new System.EventHandler(this.frmAddUpdateCustomer_Load);

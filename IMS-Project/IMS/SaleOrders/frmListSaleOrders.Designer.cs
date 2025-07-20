@@ -33,15 +33,15 @@
             this.lblFilterBy = new System.Windows.Forms.Label();
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.dgvSaleOrders = new System.Windows.Forms.DataGridView();
-            this.lblRecordsCount = new System.Windows.Forms.Label();
-            this.btnClose = new System.Windows.Forms.Button();
             this.cmsSaleOrder = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.btnShowAddUpdateSaleOrder = new System.Windows.Forms.Button();
             this.showSaleOrderInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addSaleOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editSaleOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteSaleOrderToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblRecordsCount = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnShowAddUpdateSaleOrder = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaleOrders)).BeginInit();
             this.cmsSaleOrder.SuspendLayout();
             this.SuspendLayout();
@@ -97,27 +97,6 @@
             this.dgvSaleOrders.Size = new System.Drawing.Size(1200, 414);
             this.dgvSaleOrders.TabIndex = 21;
             // 
-            // lblRecordsCount
-            // 
-            this.lblRecordsCount.AutoSize = true;
-            this.lblRecordsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRecordsCount.Location = new System.Drawing.Point(17, 575);
-            this.lblRecordsCount.Name = "lblRecordsCount";
-            this.lblRecordsCount.Size = new System.Drawing.Size(94, 32);
-            this.lblRecordsCount.TabIndex = 27;
-            this.lblRecordsCount.Text = "?????";
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(1092, 563);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(131, 44);
-            this.btnClose.TabIndex = 26;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
             // cmsSaleOrder
             // 
             this.cmsSaleOrder.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -129,18 +108,6 @@
             this.addDetailsToolStripMenuItem});
             this.cmsSaleOrder.Name = "contextMenuStrip1";
             this.cmsSaleOrder.Size = new System.Drawing.Size(223, 134);
-            // 
-            // btnShowAddUpdateSaleOrder
-            // 
-            this.btnShowAddUpdateSaleOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnShowAddUpdateSaleOrder.Image = global::IMS.Properties.Resources.Products;
-            this.btnShowAddUpdateSaleOrder.Location = new System.Drawing.Point(1138, 28);
-            this.btnShowAddUpdateSaleOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnShowAddUpdateSaleOrder.Name = "btnShowAddUpdateSaleOrder";
-            this.btnShowAddUpdateSaleOrder.Size = new System.Drawing.Size(85, 80);
-            this.btnShowAddUpdateSaleOrder.TabIndex = 24;
-            this.btnShowAddUpdateSaleOrder.UseVisualStyleBackColor = true;
-            this.btnShowAddUpdateSaleOrder.Click += new System.EventHandler(this.btnShowAddUpdateSaleOrder_Click);
             // 
             // showSaleOrderInfoToolStripMenuItem
             // 
@@ -182,6 +149,39 @@
             this.addDetailsToolStripMenuItem.Text = "Purchase Sale Details";
             this.addDetailsToolStripMenuItem.Click += new System.EventHandler(this.addDetailsToolStripMenuItem_Click);
             // 
+            // lblRecordsCount
+            // 
+            this.lblRecordsCount.AutoSize = true;
+            this.lblRecordsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRecordsCount.Location = new System.Drawing.Point(17, 575);
+            this.lblRecordsCount.Name = "lblRecordsCount";
+            this.lblRecordsCount.Size = new System.Drawing.Size(94, 32);
+            this.lblRecordsCount.TabIndex = 27;
+            this.lblRecordsCount.Text = "?????";
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(1092, 563);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(131, 44);
+            this.btnClose.TabIndex = 26;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnShowAddUpdateSaleOrder
+            // 
+            this.btnShowAddUpdateSaleOrder.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnShowAddUpdateSaleOrder.Image = global::IMS.Properties.Resources.Products;
+            this.btnShowAddUpdateSaleOrder.Location = new System.Drawing.Point(1138, 28);
+            this.btnShowAddUpdateSaleOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnShowAddUpdateSaleOrder.Name = "btnShowAddUpdateSaleOrder";
+            this.btnShowAddUpdateSaleOrder.Size = new System.Drawing.Size(85, 80);
+            this.btnShowAddUpdateSaleOrder.TabIndex = 24;
+            this.btnShowAddUpdateSaleOrder.UseVisualStyleBackColor = true;
+            this.btnShowAddUpdateSaleOrder.Click += new System.EventHandler(this.btnShowAddUpdateSaleOrder_Click);
+            // 
             // frmListSaleOrders
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -194,6 +194,9 @@
             this.Controls.Add(this.lblFilterBy);
             this.Controls.Add(this.cbFilterBy);
             this.Controls.Add(this.dgvSaleOrders);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmListSaleOrders";
             this.Text = "frmListSaleOrders";
             this.Load += new System.EventHandler(this.frmListSaleOrders_Load);
